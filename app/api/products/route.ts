@@ -1,37 +1,36 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+export async function GET() {
+  const fetchres = await fetch(`${process.env.API_GATEWAY_URL}/products`);
 
-export async function postHandler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    const requestData = await req.body;
+  const data = await fetchres.json();
 
-    const body = JSON.stringify({
-      Name: requestData.productName,
-      Category: "voertuigen",
-      Description: "Echt een heel cool voertuig",
-      Price: 2.3,
-      Stock: 122,
-    });
+  return Response.json(data);
+}
 
-    const requestOptions: RequestInit = {
-      method: "POST",
-      body: body,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+export async function POST(request: Request) {
+  const requestData = await request.json();
 
-    try {
-      const fetchres = await fetch(
-        `${process.env.API_GATEWAY_URL}/products`,
-        requestOptions
-      );
-      const responseData = await fetchres.json();
+  const body = JSON.stringify({
+    Name: requestData.Name,
+    Category: requestData.Category,
+    Description: requestData.Description,
+    Price: requestData.Price,
+    Stock: requestData.Stock,
+  });
 
-      res.status(fetchres.status).json(responseData);
-    } catch (error) {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  } else {
-    res.status(405).json({ error: "Method Not Allowed" });
-  }
+  const requestOptions: RequestInit = {
+    method: "POST",
+    body: body,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  const fetchres = await fetch(
+    `${process.env.API_GATEWAY_URL}/products`,
+    requestOptions
+  );
+
+  const data = await fetchres.json();
+
+  return Response.json({ data });
 }
