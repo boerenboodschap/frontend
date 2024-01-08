@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function CreateProduct() {
   const [productName, setProductName] = useState("");
+  const [output, setOutput] = useState("");
 
   function handleProductNameChange(e: any) {
     setProductName(e.target.value);
@@ -26,7 +27,10 @@ export default function CreateProduct() {
 
     fetch(`/api/products`, requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        setOutput(result);
+      })
       .catch((error) => console.log("error", error));
   }
 
@@ -36,6 +40,7 @@ export default function CreateProduct() {
       <label htmlFor="product-name-input">Name</label>
       <input
         id="product-name-input"
+        data-testid="product-name-input"
         type="text"
         placeholder="boerenkool"
         value={productName}
@@ -47,6 +52,7 @@ export default function CreateProduct() {
       >
         Submit
       </button>
+      {output ? <div data-testid="create-product-output">{output}</div> : null}
     </div>
   );
 }
