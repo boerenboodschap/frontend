@@ -8,3 +8,4 @@ test('create product', async ({ page }) => {
   await expect(page.getByTestId('create-product-output')).toBeVisible();
   await page.getByTestId('create-product-output').selectText();
 });
+

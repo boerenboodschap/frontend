@@ -1,16 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import Info from "../Info";
+import Spinner from "../Spinner";
 
 export default function CreateProduct() {
   const [productName, setProductName] = useState("");
+  const [loading, setLoading] = useState(false);
   const [output, setOutput] = useState("");
+  const [error, setError] = useState("");
 
   function handleProductNameChange(e: any) {
     setProductName(e.target.value);
   }
 
-  function handleCreate() {
+  async function handleCreate() {
+    setLoading(true);
+    setError("");
+    setOutput("");
+
     const body: BodyInit = JSON.stringify({
       Name: productName,
       Category: "voertuigen",
@@ -25,17 +33,30 @@ export default function CreateProduct() {
       redirect: "follow",
     };
 
+    const response = await fetch(`/api/products`, requestOptions);
+
+    if (response.ok) {
+    } else {
+      const code = response.status;
+      setError(`${code}`);
+    }
+
     fetch(`/api/products`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
         setOutput(result);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        setError(error);
+      });
+
+    setLoading(false);
   }
 
   return (
-    <div className="flex flex-col border-2 border-black p-2">
+    <div className="flex flex-col border-2 border-black p-2 gap-2">
       <h1 className="text-xl p-1">Create a new product</h1>
       <label htmlFor="product-name-input">Name</label>
       <input
@@ -48,11 +69,14 @@ export default function CreateProduct() {
       ></input>
       <button
         onClick={handleCreate}
-        className="border-black border-2 rounded-md"
+        className="border-black border-2 rounded-md content-center flex justify-center"
       >
-        Submit
+        {loading ? <Spinner /> : "Submit"}
       </button>
-      {output ? <div data-testid="create-product-output">{output}</div> : null}
+      {output ? (
+        <Info type="success" message="product created successfully" />
+      ) : null}
+      {error ? <Info type="error" message={error} /> : null}
     </div>
   );
 }
