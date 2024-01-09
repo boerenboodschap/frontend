@@ -1,5 +1,12 @@
-export async function GET() {
-  const fetchres = await fetch(`${process.env.API_GATEWAY_URL}/products`);
+import { NextRequest } from "next/server";
+
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const page = searchParams.get("page") ?? 1;
+
+  const fetchres = await fetch(
+    `${process.env.API_GATEWAY_URL}/products?page=${page}`
+  );
 
   const data = await fetchres.json();
 
