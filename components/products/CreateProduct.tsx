@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Info from "../Info";
 import Spinner from "../Spinner";
@@ -41,17 +40,6 @@ export default function CreateProduct() {
       const code = response.status;
       setError(`${code}`);
     }
-
-    // fetch(`/api/products`, requestOptions)
-    //   .then((response) => response.text())
-    //   .then((result) => {
-    //     console.log(result);
-    //     setOutput(result);
-    //   })
-    //   .catch((error) => {
-    //     console.log("error", error);
-    //     setError(error);
-    //   });
 
     setLoading(false);
   }
