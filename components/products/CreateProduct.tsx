@@ -46,8 +46,8 @@ export default function CreateProduct() {
 
   return (
     <div className="flex flex-col border-2 border-gray-400 rounded-lg p-2 lg:p-5 gap-2 shadow-md">
-      <h1 className="text-xl">Create product</h1>
-      <label htmlFor="product-name-input">Name</label>
+      <h1 className="text-xl">Nieuw product</h1>
+      <label htmlFor="product-name-input">Naam</label>
       <input
         id="product-name-input"
         data-testid="product-name-input"
@@ -55,15 +55,16 @@ export default function CreateProduct() {
         placeholder="boerenkool"
         value={productName}
         onChange={handleProductNameChange}
+        className="border-2 border-gray-400 p-1"
       ></input>
       <button
         onClick={handleCreate}
-        className="border-gray-400 border-2 rounded-lg content-center flex justify-center"
+        className="border-blue-400 border-2 rounded-lg content-center flex justify-center w-28 bg-blue-500 text-white"
       >
-        {loading ? <Spinner /> : "Submit"}
+        {loading ? <Spinner /> : "versturen"}
       </button>
       {output ? (
-        <Info type="success" message="product created successfully" />
+        <Info type="success" message="product succesvol aangemaakt" />
       ) : null}
       {error ? <Info type="error" message={error} /> : null}
     </div>

@@ -3,6 +3,8 @@ import { Product } from "@/models/product";
 import fetcher from "@/utils/fetcher";
 import { useState } from "react";
 import useSWR from "swr";
+import Spinner from "../Spinner";
+import Info from "../Info";
 
 export default function ProductList() {
   const [page, setPage] = useState(1);
@@ -21,7 +23,7 @@ export default function ProductList() {
   return (
     <div className="flex flex-col w-full bg-gray-200 p-2 lg:p-5 border-2 border-gray-400 rounded-lg my-2 gap-2 shadow-md">
       <div className="flex w-full justify-between">
-        <h1 className="text-xl">Products</h1>
+        <h1 className="text-xl">Producten</h1>
         <input
           className="w-14 bg-transparent border-2 border-gray-400 rounded-lg p-1"
           type="number"
@@ -30,22 +32,32 @@ export default function ProductList() {
         />
       </div>
       <table className=" border-gray-400 w-full table-auto">
-        <tr className="text-left border-b-2 border-black">
-          <th>Id</th>
-          <th>Name</th>
-        </tr>
-        {data
-          ? data.map((product) => (
-              <tr
-                className=" hover:bg-gray-300 even:bg-gray-200 odd:bg-gray-300/50"
-                key={product.id}
-              >
-                <td>{product.id}</td>
-                <td>{product.name}</td>
-              </tr>
-            ))
-          : null}
+        <thead>
+          <tr className="text-left border-b-2 border-black">
+            <th>Id</th>
+            <th>Naam</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data
+            ? data.map((product) => (
+                <tr
+                  className=" hover:bg-gray-300 even:bg-gray-200 odd:bg-gray-300/50"
+                  key={product.id}
+                >
+                  <td>{product.id}</td>
+                  <td>{product.name}</td>
+                </tr>
+              ))
+            : null}
+        </tbody>
       </table>
+      {(error) ? <Info type="error" message={error.message ? error.message : 'error'} /> : null}
+      {isLoading ? (
+        <div className="text-center">
+          <Spinner />
+        </div>
+      ) : null}
     </div>
   );
 }
