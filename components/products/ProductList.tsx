@@ -12,15 +12,22 @@ export default function ProductList() {
     fetcher
   );
 
+  // const data = [{ id: page, name: "test" }];
+
   function handlePageChange(e: any) {
     setPage(e.target.value);
   }
 
   return (
-    <div className="w-full bg-gray-200 p-5 border-2 border-gray-400 rounded-xl">
+    <div className="flex flex-col w-full bg-gray-200 p-2 lg:p-5 border-2 border-gray-400 rounded-lg my-2 gap-2 shadow-md">
       <div className="flex w-full justify-between">
         <h1 className="text-xl">Products</h1>
-        <input className="w-14" type="number" value={page} onChange={handlePageChange} />
+        <input
+          className="w-14 bg-transparent border-2 border-gray-400 rounded-lg p-1"
+          type="number"
+          value={page}
+          onChange={handlePageChange}
+        />
       </div>
       <table className=" border-gray-400 w-full table-auto">
         <tr className="text-left border-b-2 border-black">

@@ -45,8 +45,8 @@ export default function CreateProduct() {
   }
 
   return (
-    <div className="flex flex-col border-2 border-black p-2 gap-2">
-      <h1 className="text-xl p-1">Create a new product</h1>
+    <div className="flex flex-col border-2 border-gray-400 rounded-lg p-2 lg:p-5 gap-2 shadow-md">
+      <h1 className="text-xl">Create product</h1>
       <label htmlFor="product-name-input">Name</label>
       <input
         id="product-name-input"
@@ -58,7 +58,7 @@ export default function CreateProduct() {
       ></input>
       <button
         onClick={handleCreate}
-        className="border-black border-2 rounded-md content-center flex justify-center"
+        className="border-gray-400 border-2 rounded-lg content-center flex justify-center"
       >
         {loading ? <Spinner /> : "Submit"}
       </button>

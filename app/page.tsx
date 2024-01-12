@@ -1,14 +1,25 @@
 import CreateProduct from "@/components/products/CreateProduct";
 import ProductList from "@/components/products/ProductList";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center gap-10 p-24">
-      <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-        Welkom bij BoerenBoodschap
-      </p>
-      <ProductList />
-      <CreateProduct />
+    <main className="flex min-h-screen flex-col items-center gap-10 lg:p-24 pt-12">
+      <nav className="top-0 h-12 fixed overflow-auto bg-gray-100 w-full flex p-2 gap-2 justify-between px-5 shadow-md rounded-b-xl">
+        <Link href="/" className="">
+          Home
+        </Link>
+        <Link href="/" className="">
+          Products
+        </Link>
+        <Link href="/" className="">
+          Orders
+        </Link>
+      </nav>
+      <div className="w-full px-2 md:px-20 lg:px-44">
+        <ProductList />
+        <CreateProduct />
+      </div>
     </main>
   );
 }
