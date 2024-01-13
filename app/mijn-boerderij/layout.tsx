@@ -29,11 +29,28 @@ export default function MijnBoerderijLayout({
           <Link href="/mijn-boerderij/bestellingen" className="">
             Bestellingen
           </Link>
-          <Link href="/api/auth/logout">Uitloggen</Link>
+          <div className="md:right-4 md:absolute flex flex-row items-center gap-2">
+            <Link href="/mijn-boerderij/profiel">profiel</Link>
+            <Link className="button" href="/api/auth/logout">
+              Uitloggen
+            </Link>
+          </div>
         </nav>
         <div className="pt-14 px-2 md:px-10 lg:px-60">{children}</div>
       </UserProvider>
     );
 
-  return <a href="/api/auth/login">Login</a>;
+  return (
+    <div className="w-screen h-screen flex items-center justify-center">
+      <div className="flex flex-col gap-2 text-center shadow-xl p-12 rounded-3xl">
+        <h1>Log in om naar je boerderij te gaan.</h1>
+        <Link
+          className="button"
+          href="/api/auth/login?returnTo=/mijn-boerderij"
+        >
+          Login
+        </Link>
+      </div>
+    </div>
+  );
 }

@@ -57,10 +57,7 @@ export default function CreateProduct() {
         onChange={handleProductNameChange}
         className="border-2 border-gray-400 p-1"
       ></input>
-      <button
-        onClick={handleCreate}
-        className="border-blue-400 border-2 rounded-lg content-center flex justify-center w-28 bg-blue-500 text-white"
-      >
+      <button onClick={handleCreate} className="button">
         {loading ? <Spinner /> : "versturen"}
       </button>
       {output ? (

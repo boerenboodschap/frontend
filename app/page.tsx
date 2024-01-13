@@ -6,9 +6,6 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center gap-10 xl:p-24 pt-12">
       <nav className="top-0 h-12 fixed overflow-auto bg-gray-100 w-full flex p-2 gap-2 justify-between md:justify-center items-center px-5 shadow-md rounded-b-xl">
-        <Link href="/" className="">
-          Home
-        </Link>
         <Link href="/mijn-boerderij" className="">
           Mijn Boerderij
         </Link>
@@ -22,7 +19,6 @@ export default function Home() {
           </p>
         </section>
         <ProductList />
-        <CreateProduct />
       </div>
     </div>
   );

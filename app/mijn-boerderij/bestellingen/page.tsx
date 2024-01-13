@@ -1,8 +1,10 @@
+import OrderList from "@/components/orders/OrderList";
+
 export default function OrderManagement() {
     return (
       <div>
         <div>Beheer hier je bestellingen</div>
-        <div>Lijst met bestellingen</div>
+        <OrderList />
       </div>
     );
   }
