@@ -4,7 +4,7 @@ import Info from "../Info";
 import Spinner from "../Spinner";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
-export default function CreateProduct() {
+export default function CreateOrder() {
   const [productName, setProductName] = useState("");
   const [loading, setLoading] = useState(false);
   const [output, setOutput] = useState("");
@@ -25,11 +25,11 @@ export default function CreateProduct() {
 
     const body: BodyInit = JSON.stringify({
       Name: productName,
-      UserId: user?.sub ?? 'UserID',
-      Category: "voertuigen",
-      Description: "Echt een heel cool voertuig",
-      Price: 2.3,
-      Stock: 122,
+      Price: 23,
+      Category: "categorie",
+      Author: user?.sub ?? 'userId',
+      Products: { "productid-duisagibw24334": 10 },
+      Status: "PENDING"
     });
 
     var requestOptions: RequestInit = {
@@ -38,7 +38,7 @@ export default function CreateProduct() {
       redirect: "follow",
     };
 
-    const response = await fetch(`/api/products`, requestOptions);
+    const response = await fetch(`/api/orders`, requestOptions);
 
     if (response.ok) {
       setOutput("success");
@@ -52,7 +52,7 @@ export default function CreateProduct() {
 
   return (
     <div className="flex flex-col border-2 border-gray-400 rounded-lg p-2 lg:p-5 gap-2 shadow-md">
-      <h1 className="text-xl">Nieuw product</h1>
+      <h1 className="text-xl">Nieuwe bestelling</h1>
       <label htmlFor="product-name-input">Naam</label>
       <input
         id="product-name-input"
