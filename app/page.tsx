@@ -1,24 +1,25 @@
-import CreateProduct from "@/components/products/CreateProduct";
+"use client";
 import ProductList from "@/components/products/ProductList";
-import Link from "next/link";
+import dynamic from "next/dynamic";
 
 export default function Home() {
+  const Map = dynamic(() => import("@/components/Map"), { ssr: false });
   return (
-    <div className="flex min-h-screen flex-col items-center gap-10 xl:p-24 pt-12">
-      <nav className="top-0 h-12 fixed overflow-auto bg-gray-100 w-full flex p-2 gap-2 justify-between md:justify-center items-center px-5 shadow-md rounded-b-xl">
-        <Link href="/mijn-boerderij" className="">
-          Mijn Boerderij
-        </Link>
-      </nav>
+    <div className="bg-background-50 flex flex-col h-full items-center gap-10 xl:p-24">
       <div className="w-full px-2 md:px-20 lg:px-44">
-        <section className="p-10">
-          <h1 className="text-xl">Welkom bij boerenboodschap!</h1>
+        <section className="py-10 gap-4 flex flex-col">
+          <h1 className="text-6xl font-extrabold">
+            Welkom bij boerenboodschap!
+          </h1>
           <p>
             Zoek naar je favoriete producten hiero en plaats een bestelling bij
             de boer!
           </p>
         </section>
         <ProductList />
+        <div id="map">
+          <Map />
+        </div>
       </div>
     </div>
   );

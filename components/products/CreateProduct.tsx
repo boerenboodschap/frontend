@@ -25,7 +25,7 @@ export default function CreateProduct() {
 
     const body: BodyInit = JSON.stringify({
       Name: productName,
-      UserId: user?.sub ?? 'UserID',
+      UserId: user?.sub ?? "UserID",
       Category: "voertuigen",
       Description: "Echt een heel cool voertuig",
       Price: 2.3,
@@ -34,6 +34,7 @@ export default function CreateProduct() {
 
     var requestOptions: RequestInit = {
       method: "POST",
+      credentials: "include",
       body: body,
       redirect: "follow",
     };
@@ -51,7 +52,7 @@ export default function CreateProduct() {
   }
 
   return (
-    <div className="flex flex-col border-2 border-gray-400 rounded-lg p-2 lg:p-5 gap-2 shadow-md">
+    <div className="flex flex-col bg-primary-100 rounded-lg p-2 lg:p-5 gap-2">
       <h1 className="text-xl">Nieuw product</h1>
       <label htmlFor="product-name-input">Naam</label>
       <input
@@ -61,7 +62,7 @@ export default function CreateProduct() {
         placeholder="boerenkool"
         value={productName}
         onChange={handleProductNameChange}
-        className="border-2 border-gray-400 p-1"
+        className="border border-primary-400 p-1 rounded-md"
       ></input>
       <button onClick={handleCreate} className="button">
         {loading ? <Spinner /> : "versturen"}

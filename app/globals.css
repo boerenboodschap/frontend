@@ -27,19 +27,12 @@
 } */
 
 .button {
-  background-color: rgb(61, 98, 221);
-  color: white;
-  padding: 0.2em;
+  background-color: #38c838;
+  padding: 0.4em;
   border-radius: 0.6em;
-  border-width: 2px;
-  border-color: rgb(140, 160, 226);
 }
 
 .button:hover {
-  background-color: rgb(47, 77, 175);
-  color: white;
-  padding: 0.2em;
-  border-radius: 0.6em;
-  border-width: 2px;
-  border-color: rgb(104, 131, 221);
+  background-color: #59cf59;
+  padding: 0.4em;
 }

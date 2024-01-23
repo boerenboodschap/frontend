@@ -27,13 +27,14 @@ export async function POST(request: Request) {
     Status: requestData.Status,
   });
 
-  console.log(body);
+  const token = request.headers.get("Authorization") ?? "token";
 
   const requestOptions: RequestInit = {
     method: "POST",
     body: body,
     headers: {
       "Content-Type": "application/json",
+      "Authorization": token,
     },
   };
 
@@ -42,9 +43,8 @@ export async function POST(request: Request) {
     requestOptions
   );
 
-  console.log(fetchres);
-
   if (fetchres.status === 500) return Response.error();
+  if (fetchres.status === 401) return Response.error();
 
   const data = await fetchres.json();
 

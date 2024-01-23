@@ -16,10 +16,7 @@ export default function MijnBoerderijLayout({
   if (user)
     return (
       <UserProvider>
-        <nav className="top-0 h-12 fixed overflow-auto bg-gray-100 w-full flex p-2 gap-2 md:gap-4 justify-between md:justify-center items-center px-5 shadow-md rounded-b-xl">
-          <Link href="/" className="">
-            Home
-          </Link>
+        <nav className="top-14 h-12 font-semibold fixed overflow-auto bg-background-50 border-b border-b-1 w-full flex gap-2 md:gap-4 justify-between md:justify-center items-center px-5">
           <Link href="/mijn-boerderij" className="">
             Boerderij
           </Link>

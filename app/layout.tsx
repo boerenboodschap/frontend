@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +19,30 @@ export default function RootLayout({
 }) {
   return (
     <UserProvider>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
+      <html lang="en" className="">
+        <body className={`${inter.className} h-full w-screen`}>
+          <header className="top-0 h-14 px-2 md:px-20 lg:px-64 font-semibold fixed overflow-auto bg-background-50 w-full border border-b-1 flex gap-12 justify-between items-center">
+            <nav>
+              <Link href="/">
+                <Image
+                  alt="boerenboodschap mascotte"
+                  src="/boerboodschap_mascot.webp"
+                  width={43}
+                  height={43}
+                />
+              </Link>
+            </nav>
+            <nav className="flex gap-10 justify-between items-center">
+              <Link href="/kaart" className="">
+                Kaart
+              </Link>
+              <Link href="/mijn-boerderij" className="">
+                Mijn Boerderij
+              </Link>
+            </nav>
+          </header>
+          <div className="mt-14">{children}</div>
+        </body>
       </html>
     </UserProvider>
   );
