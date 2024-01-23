@@ -35,8 +35,6 @@ export const POST = withApiAuthRequired(async function POST(request: Request) {
     credentials: "include",
     headers: {
       "Authorization": `Bearer ${accessToken}`,
-      // "Authorization": `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxTeXpDMFBJZFNIc251RmxnSmJieiJ9.eyJpc3MiOiJodHRwczovL3R1aW4uZXUuYXV0aDAuY29tLyIsInN1YiI6IkdCc1pBNXhhd2NlV29mc2JmZGZ2TGpERzZIMUdka1lrQGNsaWVudHMiLCJhdWQiOiJodHRwczovL3Byb2R1Y3RzLmJvZXJlbmJvb2RzY2hhcC5ubCIsImlhdCI6MTcwNTMxMDEzMSwiZXhwIjoxNzA1Mzk2NTMxLCJhenAiOiJHQnNaQTV4YXdjZVdvZnNiZmRmdkxqREc2SDFHZGtZayIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsInBlcm1pc3Npb25zIjpbXX0.BRbdUtlp1fVxN-i2m7bgHfjEoUHKQWZj4zMbzFMypZa6n2WbO7SMu0YieIwqnXyqBZzWhDrBVmcbmgqgpwwuLy0shdJO-oFHMJzzzLdeZpFM8jjiXWyky24JYT6OLrpOFag8lW9O5eeD_-zxF1_VCsWpbCBrHVt1JAboMw6SZVHNR6wZXdJ6k7y6Ncl4GdmSqMjBO3P-95xe9cobeOEZagaYh4FjzfjeHdu-heCk_9vZeUsmT1_X3IsGbEVhw7WU6zXhJv9WZnni0YWLkOX10f8hgvYyqv9h6MuZt0mE54X4au2XSGAf3R1QXS61q2kD2E-yRIITd-IAmrJ4SRHbhQ`,
-
       "Content-Type": "application/json",
     },
   };
