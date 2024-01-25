@@ -27,9 +27,9 @@ export default function CreateOrder() {
       Name: productName,
       Price: 23,
       Category: "categorie",
-      Author: user?.sub ?? 'userId',
+      Author: user?.sub ?? "userId",
       Products: { "productid-duisagibw24334": 10 },
-      Status: "PENDING"
+      Status: "PENDING",
     });
 
     var requestOptions: RequestInit = {
@@ -51,7 +51,7 @@ export default function CreateOrder() {
   }
 
   return (
-    <div className="flex flex-col border-2 border-gray-400 rounded-lg p-2 lg:p-5 gap-2 shadow-md">
+    <div className="flex flex-col gap-2 rounded-lg border-2 border-gray-400 p-2 shadow-md lg:p-5">
       <h1 className="text-xl">Nieuwe bestelling</h1>
       <label htmlFor="product-name-input">Naam</label>
       <input

@@ -3,7 +3,7 @@ import { type HTTP_METHOD } from "next/dist/server/web/http";
 const fetcher = <T>(
   url: string,
   method: HTTP_METHOD = "GET",
-  body?: Record<string, unknown>
+  body?: Record<string, unknown>,
 ): Promise<T> => {
   const requestConfig: RequestInit = {
     method,

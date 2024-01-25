@@ -52,7 +52,7 @@ export default function CreateProduct() {
   }
 
   return (
-    <div className="flex flex-col bg-primary-100 rounded-lg p-2 lg:p-5 gap-2">
+    <div className="flex flex-col gap-2 rounded-lg bg-primary-100 p-2 lg:p-5">
       <h1 className="text-xl">Nieuw product</h1>
       <label htmlFor="product-name-input">Naam</label>
       <input
@@ -62,7 +62,7 @@ export default function CreateProduct() {
         placeholder="boerenkool"
         value={productName}
         onChange={handleProductNameChange}
-        className="border border-primary-400 p-1 rounded-md"
+        className="rounded-md border border-primary-400 p-1"
       ></input>
       <button onClick={handleCreate} className="button">
         {loading ? <Spinner /> : "versturen"}

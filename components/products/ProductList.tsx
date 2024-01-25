@@ -27,22 +27,23 @@ export default function ProductList() {
   console.log(data);
 
   return (
-    <div className="flex flex-col w-full bg-primary-100 p-2 lg:p-5 rounded-lg my-2 gap-2">
+    <div className="my-2 flex w-full flex-col gap-2 rounded-lg bg-primary-100 p-2 lg:p-5">
       <div className="flex w-full justify-between">
         <h1 className="text-xl">Producten</h1>
         <div className="flex flex-row  gap-2">
-          <p>pagina: </p>
-        <input
-          className="w-14 bg-transparent text-right"
-          type="number"
-          value={page}
-          onChange={handlePageChange}
-        />
+          <label htmlFor="product-page-input">labelagina: </label>
+          <input
+            className="w-14 bg-transparent text-right"
+            type="number"
+            id="product-page-input"
+            value={page}
+            onChange={handlePageChange}
+          />
         </div>
       </div>
       <table className="w-full table-auto">
         <thead>
-          <tr className="text-left border-b-2 border-black">
+          <tr className="border-b-2 border-black text-left">
             <th>Id</th>
             <th>Naam</th>
             <th>Prijs (€)</th>
@@ -53,7 +54,7 @@ export default function ProductList() {
           {data
             ? data.map((product) => (
                 <tr
-                  className="h-14 hover:bg-primary-300 odd:bg-primary-300/50"
+                  className="h-14 odd:bg-primary-300/50 hover:bg-primary-300"
                   key={product.id}
                 >
                   <td>{product.id}</td>

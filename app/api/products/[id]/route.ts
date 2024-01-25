@@ -1,9 +1,9 @@
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string } },
 ) {
   const fetchres = await fetch(
-    `${process.env.API_GATEWAY_URL}/products/${params.id}`
+    `${process.env.API_GATEWAY_URL}/products/${params.id}`,
   );
 
   const data = await fetchres.json();

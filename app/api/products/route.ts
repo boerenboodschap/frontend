@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
   const page = searchParams.get("page") ?? 1;
 
   const fetchres = await fetch(
-    `${process.env.API_GATEWAY_URL}/products?page=${page}`
+    `${process.env.API_GATEWAY_URL}/products?page=${page}`,
   );
 
   const data = await fetchres.json();
@@ -34,14 +34,14 @@ export const POST = withApiAuthRequired(async function POST(request: Request) {
     body: body,
     credentials: "include",
     headers: {
-      "Authorization": `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
   };
 
   const fetchres = await fetch(
     `${process.env.API_GATEWAY_URL}/products`,
-    requestOptions
+    requestOptions,
   );
 
   // console.log(fetchres);

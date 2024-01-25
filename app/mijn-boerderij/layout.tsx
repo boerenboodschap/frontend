@@ -16,7 +16,7 @@ export default function MijnBoerderijLayout({
   if (user)
     return (
       <UserProvider>
-        <nav className="top-14 h-12 font-semibold fixed overflow-auto bg-background-50 border-b border-b-1 w-full flex gap-2 md:gap-4 justify-between md:justify-center items-center px-5">
+        <nav className="border-b-1 fixed top-14 flex h-12 w-full items-center justify-between gap-2 overflow-auto border-b bg-background-50 px-5 font-semibold md:justify-center md:gap-4">
           <Link href="/mijn-boerderij" className="">
             Boerderij
           </Link>
@@ -26,20 +26,20 @@ export default function MijnBoerderijLayout({
           <Link href="/mijn-boerderij/bestellingen" className="">
             Bestellingen
           </Link>
-          <div className="md:right-4 md:absolute flex flex-row items-center gap-2">
+          <div className="flex flex-row items-center gap-2 md:absolute md:right-4">
             <Link href="/mijn-boerderij/profiel">profiel</Link>
             <Link className="button" href="/api/auth/logout">
               Uitloggen
             </Link>
           </div>
         </nav>
-        <div className="pt-14 px-2 md:px-10 lg:px-60">{children}</div>
+        <div className="px-2 pt-14 md:px-10 lg:px-60">{children}</div>
       </UserProvider>
     );
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
-      <div className="flex flex-col gap-2 text-center shadow-xl p-12 rounded-3xl">
+    <div className="flex h-screen w-screen items-center justify-center">
+      <div className="flex flex-col gap-2 rounded-3xl p-12 text-center shadow-xl">
         <h1>Log in om naar je boerderij te gaan.</h1>
         <Link
           className="button"

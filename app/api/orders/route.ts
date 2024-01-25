@@ -34,13 +34,13 @@ export async function POST(request: Request) {
     body: body,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": token,
+      Authorization: token,
     },
   };
 
   const fetchres = await fetch(
     `${process.env.API_GATEWAY_URL}/orders`,
-    requestOptions
+    requestOptions,
   );
 
   if (fetchres.status === 500) return Response.error();
