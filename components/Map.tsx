@@ -3,11 +3,11 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 const Map = () => {
-  const iconPerson = new L.Icon({
+  const icon = new L.Icon({
     iconUrl: "/marker-icon.png",
-    iconSize: [40, 55],
-    iconAnchor: [20, 55],
-    popupAnchor: [0, -55],
+    iconSize: [25, 35],
+    iconAnchor: [12.5, 35],
+    popupAnchor: [0, -35],
   });
 
   return (
@@ -21,7 +21,7 @@ const Map = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[52.132633, 5.291266]} icon={iconPerson}>
+      <Marker position={[52.132633, 5.291266]} icon={icon}>
         {/* <Icon iconUrl={"/marker-icon"} /> */}
         <Popup>
           <div className="bg-background-300 p-4">
