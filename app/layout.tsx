@@ -36,7 +36,7 @@ export default function RootLayout({
               <Link href="/kaart" className="">
                 Kaart
               </Link>
-              <Link href="/mijn-boerderij" className="">
+              <Link href="/mijn-boerderij" className="nav-link">
                 Mijn Boerderij
               </Link>
             </nav>
