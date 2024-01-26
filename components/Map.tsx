@@ -1,8 +1,13 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { MapMarker } from "@/models/marker";
 
-const Map = () => {
+interface Props {
+  markers: MapMarker[];
+}
+
+export default function Map(props: Props) {
   const icon = new L.Icon({
     iconUrl: "/marker-icon.png",
     iconSize: [25, 35],
@@ -21,16 +26,19 @@ const Map = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[52.132633, 5.291266]} icon={icon}>
-        {/* <Icon iconUrl={"/marker-icon"} /> */}
-        <Popup>
-          <div className="bg-background-300 p-4">
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </div>
-        </Popup>
-      </Marker>
+      {props.markers.map((marker) => (
+        <Marker
+          position={[marker.posX, marker.posY]}
+          icon={icon}
+          key={marker.posX}
+        >
+          <Popup>
+            <div className="bg-background-300 p-4">
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </div>
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
-};
-
-export default Map;
+}
