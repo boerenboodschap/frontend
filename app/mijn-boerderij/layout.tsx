@@ -38,8 +38,8 @@ export default function MijnBoerderijLayout({
     );
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center">
-      <div className="flex flex-col gap-2 rounded-3xl p-12 text-center shadow-xl">
+    <div className="flex h-full w-screen items-center justify-center">
+      <div className="flex flex-col gap-2 rounded-3xl p-4 text-center shadow-xl md:p-12">
         <h1>Log in om naar je boerderij te gaan.</h1>
         <Link
           className="button"

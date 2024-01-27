@@ -1,4 +1,5 @@
 "use client";
+import ProductGallery from "@/components/products/ProductGallery";
 import ProductList from "@/components/products/ProductList";
 import dynamic from "next/dynamic";
 
@@ -19,7 +20,7 @@ export default function Home() {
             de boer!
           </p>
         </section>
-        <ProductList />
+        <ProductGallery />
       </div>
     </div>
   );

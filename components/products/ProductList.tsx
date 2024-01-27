@@ -9,16 +9,16 @@ import Info from "../Info";
 export default function ProductList() {
   const [page, setPage] = useState(1);
 
-  // const { data, error, isLoading } = useSWR<Product[]>(
-  //   () => `/api/products/?page=${page}`,
-  //   fetcher
-  // );
+  const { data, error, isLoading } = useSWR<Product[]>(
+    () => `/api/products/?page=${page}`,
+    fetcher,
+  );
 
-  const data = [
-    { id: page, name: "test", price: 10, stock: 112 },
-    { id: page, name: "test", price: 10, stock: 112 },
-    { id: page, name: "test", price: 10, stock: 112 },
-  ];
+  // const data = [
+  //   { id: page, name: "test", price: 10, stock: 112 },
+  //   { id: page, name: "test", price: 10, stock: 112 },
+  //   { id: page, name: "test", price: 10, stock: 112 },
+  // ];
 
   function handlePageChange(e: any) {
     setPage(e.target.value);
@@ -66,12 +66,14 @@ export default function ProductList() {
             : null}
         </tbody>
       </table>
-      {/* {(error) ? <Info type="error" message={error.message ? error.message : 'error'} /> : null}
+      {error ? (
+        <Info type="error" message={error.message ? error.message : "error"} />
+      ) : null}
       {isLoading ? (
         <div className="text-center">
           <Spinner />
         </div>
-      ) : null} */}
+      ) : null}
     </div>
   );
 }
