@@ -1,17 +1,26 @@
 "use client";
-import { MapMarker } from "@/models/marker";
+import { Farm } from "@/models/farm";
+import fetcher from "@/utils/fetcher";
 import dynamic from "next/dynamic";
+import useSWRImmutable from "swr/immutable";
 
 export default function MapPage() {
+  const { data } = useSWRImmutable<Farm[]>("/api/farms", fetcher);
+
   const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 
-  const markers: MapMarker[] = [
-    { posX: 51.42942599903818, posY: 5.457214455372421 },
+  const markers: Farm[] = [
+    {
+      id: "dsahgjvdsa",
+      name: "hard coded farm",
+      posX: 51.42942599903818,
+      posY: 5.457214455372421,
+    },
   ];
 
   return (
     <div id="map" className="h-full w-full">
-      <Map markers={markers} />
+      <Map farms={data ? data : markers} />
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { MapMarker } from "@/models/marker";
+import { Farm } from "@/models/farm";
 
 interface Props {
-  markers: MapMarker[];
+  farms: Farm[] | undefined;
 }
 
 export default function Map(props: Props) {
@@ -26,19 +26,24 @@ export default function Map(props: Props) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {props.markers.map((marker) => (
-        <Marker
-          position={[marker.posX, marker.posY]}
-          icon={icon}
-          key={marker.posX}
-        >
-          <Popup>
-            <div className="bg-background-300 p-4">
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      {props.farms
+        ? props.farms.map((marker) => (
+            <Marker
+              position={[marker.posX, marker.posY]}
+              icon={icon}
+              key={marker.posX}
+            >
+              <Popup>
+                <div className="">
+                  <h1>{marker.name}</h1>
+                  <div>
+                    {marker.posX} {marker.posY}
+                  </div>
+                </div>
+              </Popup>
+            </Marker>
+          ))
+        : null}
     </MapContainer>
   );
 }
