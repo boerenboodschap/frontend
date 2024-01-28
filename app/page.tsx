@@ -1,4 +1,5 @@
 "use client";
+import FarmGallery from "@/components/farms/FarmGallery";
 import ProductGallery from "@/components/products/ProductGallery";
 import ProductList from "@/components/products/ProductList";
 import dynamic from "next/dynamic";
@@ -20,7 +21,16 @@ export default function Home() {
             de boer!
           </p>
         </section>
-        <ProductGallery />
+        <section className="flex flex-col gap-4">
+          <h1 className="w-full border-b-2 text-center text-2xl font-bold">
+            Boerderijen
+          </h1>
+          <FarmGallery />
+          <h1 className="w-full border-b-2 text-center text-2xl font-bold">
+            Producten
+          </h1>
+          <ProductGallery />
+        </section>
       </div>
     </div>
   );
