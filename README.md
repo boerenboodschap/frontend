@@ -9,6 +9,7 @@ A nextjs applicaton for the BoerenBoodschap project. This reads from and writes 
 - [ ] location and radius input
 - [ ] Farms in my area
 - [ ] Toggle button to switch to products in my area
+- [ ] Filter on dairy, vegetables etc
 
 ### Farm
 
