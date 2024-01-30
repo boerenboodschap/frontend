@@ -1,5 +1,5 @@
-import { NextRequest } from "next/server";
-import { getAccessToken, withApiAuthRequired } from "@auth0/nextjs-auth0";
+import { NextRequest, NextResponse } from "next/server";
+import { getAccessToken, getSession, withApiAuthRequired } from "@auth0/nextjs-auth0";
 
 export async function GET(request: NextRequest) {
   // const searchParams = request.nextUrl.searchParams;
@@ -12,20 +12,27 @@ export async function GET(request: NextRequest) {
   return Response.json(data);
 }
 
-export const POST = withApiAuthRequired(async function POST(request: Request) {
+export const POST = withApiAuthRequired(async function POST(request) {
+  const res = new NextResponse();
+  const { user }: any = await getSession(request, res);
+ 
+  // console.log(user.sub)
+
   // export async function POST(request: Request) {
   const accessToken = await getAccessToken();
   const requestData = await request.json();
 
-  console.log(accessToken);
+  // console.log(accessToken);
 
   const body = JSON.stringify({
+    FarmerId: user.sub,
     Name: requestData.Name,
-    Category: requestData.Category,
     Description: requestData.Description,
-    Price: requestData.Price,
-    Stock: requestData.Stock,
+    PosX: requestData.PosX,
+    PosY: requestData.PosY,
   });
+
+  // console.log(body)
 
   const requestOptions: RequestInit = {
     method: "POST",
@@ -37,14 +44,19 @@ export const POST = withApiAuthRequired(async function POST(request: Request) {
     },
   };
 
+  // console.log(`${process.env.API_GATEWAY_URL}/farms`)
+
   const fetchres = await fetch(
-    `${process.env.API_GATEWAY_URL}/products`,
+    `${process.env.API_GATEWAY_URL}/farms`,
     requestOptions,
   );
 
   // console.log(fetchres);
 
-  if (fetchres.status === 500) return Response.error();
+  if (!fetchres.ok)
+    return new Response(`error: ${fetchres.statusText}`, {
+      status: fetchres.status,
+    });
 
   const data = await fetchres.json();
 
