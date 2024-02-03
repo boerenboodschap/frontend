@@ -20,7 +20,7 @@ export default function ProductList() {
   while (i < 50) {
     let product: Product = {
       id: i.toString(),
-      name: `test ${i.toString()}`,
+      name: `test product ${i.toString()}`,
       price: i + 10,
       stock: i + 10 * i,
     };

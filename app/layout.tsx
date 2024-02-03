@@ -21,7 +21,7 @@ export default function RootLayout({
     <UserProvider>
       <html lang="en" className="h-screen w-screen">
         <body
-          className={`${inter.className} static h-full w-full bg-background-50 bg-repeat pt-14`}
+          className={`${inter.className} static h-full w-full bg-background-100/40 bg-repeat pt-14`}
         >
           <header className="border-b-1 fixed top-0 flex h-14 w-full items-center justify-between gap-12 overflow-auto border bg-background-50 px-2 font-semibold md:px-20 lg:px-64">
             <nav>

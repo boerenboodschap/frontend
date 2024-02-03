@@ -37,6 +37,11 @@
   padding: 0.4em;
 }
 
+.pill {
+  padding: 0.1em 0.4em 0.1em 0.4em;
+  border-radius: 1em;
+}
+
 .nav-link {
   transition: all 0.2s ease-out;
 }

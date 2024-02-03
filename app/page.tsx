@@ -1,15 +1,23 @@
 "use client";
+import Card from "@/components/Card";
+import MapComponent from "@/components/MapComponent";
 import FarmGallery from "@/components/farms/FarmGallery";
 import ProductGallery from "@/components/products/ProductGallery";
-import ProductList from "@/components/products/ProductList";
-import dynamic from "next/dynamic";
+import { useState } from "react";
 
 export default function Home() {
-  const Map = dynamic(() => import("@/components/Map"), { ssr: false });
+  enum Pages {
+    Farms,
+    Products,
+    Map,
+  }
+
+  const [page, setPage] = useState(Pages.Farms);
+
   return (
-    <div className="flex grow flex-col items-center gap-10 xl:p-24">
-      <div className="w-full px-2 md:px-20 lg:px-44">
-        <section className="flex flex-col gap-4 py-10">
+    <div className="flex grow flex-col items-center xl:p-24">
+      <div className=" flex w-full flex-col gap-4 p-3 md:px-20 lg:px-44">
+        <section className="flex flex-col gap-2">
           <h1 className="text-balance text-4xl font-extrabold xl:text-6xl">
             Welkom bij{" "}
             <span className="bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
@@ -21,15 +29,34 @@ export default function Home() {
             de boer!
           </p>
         </section>
-        <section className="flex flex-col gap-4">
-          <h1 className="w-full border-b-2 text-center text-2xl font-bold">
-            Boerderijen
-          </h1>
-          <FarmGallery />
-          <h1 className="w-full border-b-2 text-center text-2xl font-bold">
+        <nav className="flex w-fit self-center rounded-full border border-black bg-background-50 text-sm">
+          <button
+            className={`h-full w-full rounded-l-full px-4 py-1 ${page === Pages.Farms ? "bg-primary-200" : ""}`}
+            onClick={() => setPage(Pages.Farms)}
+          >
+            Boeren
+          </button>
+          <button
+            className={`border-x border-black px-4 py-1 ${page === Pages.Products ? "bg-primary-200" : ""}`}
+            onClick={() => setPage(Pages.Products)}
+          >
             Producten
-          </h1>
-          <ProductGallery />
+          </button>
+          <button
+            className={`rounded-r-full px-4 py-1 ${page === Pages.Map ? "bg-primary-200" : ""}`}
+            onClick={() => setPage(Pages.Map)}
+          >
+            Kaart
+          </button>
+        </nav>
+        <section className="flex flex-col gap-4">
+          {page === Pages.Farms ? <FarmGallery /> : null}
+          {page === Pages.Products ? <ProductGallery /> : null}
+          {page === Pages.Map ? (
+            <div className="w-full aspect-square">
+              <MapComponent/>
+            </div>
+          ) : null}
         </section>
       </div>
     </div>
