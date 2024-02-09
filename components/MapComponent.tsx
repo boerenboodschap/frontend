@@ -19,7 +19,7 @@ export default function MapCompnent() {
   ];
 
   return (
-    <div id="map" className="w-full h-full">
+    <div id="map" className="h-full w-full">
       <Map farms={data ? data : markers} />
     </div>
   );

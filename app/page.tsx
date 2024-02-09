@@ -53,8 +53,8 @@ export default function Home() {
           {page === Pages.Farms ? <FarmGallery /> : null}
           {page === Pages.Products ? <ProductGallery /> : null}
           {page === Pages.Map ? (
-            <div className="w-full aspect-square">
-              <MapComponent/>
+            <div className="aspect-square w-full">
+              <MapComponent />
             </div>
           ) : null}
         </section>

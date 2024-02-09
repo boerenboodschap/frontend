@@ -19,7 +19,7 @@ export default function MyFarm() {
 
   if (!data) return <CreateFarm />;
 
-  console.log(data)
+  console.log(data);
 
   return <div>{data.name}</div>;
 }

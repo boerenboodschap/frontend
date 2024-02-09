@@ -24,7 +24,7 @@ export default function CreateFarm() {
     setOutput("");
 
     const body: BodyInit = JSON.stringify({
-    UserId: user?.sub ?? "UserID",
+      UserId: user?.sub ?? "UserID",
       Name: farmName,
       Description: "Super gave boerderij",
       PosX: 2.3,
