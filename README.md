@@ -2,6 +2,8 @@
 
 A nextjs applicaton for the BoerenBoodschap project. This reads from and writes data to the [Api Gateway](https://github.com/boerenboodschap/gateway) or the [Monolith API](https://github.com/boerenboodschap/monolith).
 
+https://www.gradientmagic.com/collection/lightbg/gradient/1583799604316
+
 ## Requirements
 
 ### Home
