@@ -23,6 +23,7 @@ export default function ProductList() {
       name: `test product ${i.toString()}`,
       price: i + 10,
       stock: i + 10 * i,
+      imageSrc: `https://source.unsplash.com/random/1000x700/?${i}`,
     };
     data.push(product);
     i++;
@@ -35,7 +36,7 @@ export default function ProductList() {
   console.log(data);
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
+    <div className="grid gap-4 self-center sm:grid-cols-2 md:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
       {data
         ? data.map((product) => (
             <ProductCard key={product.id} product={product} />

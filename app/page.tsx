@@ -1,4 +1,5 @@
 "use client";
+import ButtonPrimary from "@/components/ButtonPrimary";
 import Card from "@/components/Card";
 import MapComponent from "@/components/MapComponent";
 import FarmGallery from "@/components/farms/FarmGallery";
@@ -29,6 +30,11 @@ export default function Home() {
             de boer!
           </p>
         </section>
+        <div className="flex w-full justify-center">
+          <button className="flex h-full w-fit rounded-full bg-primary-300 p-2 px-4 hover:bg-primary-300/75">
+            Get Location
+          </button>
+        </div>
         <nav className="flex w-fit self-center rounded-full border border-black bg-background-50 text-sm">
           <button
             className={`h-full w-full rounded-l-full px-4 py-1 ${page === Pages.Farms ? "bg-primary-200" : ""}`}

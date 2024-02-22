@@ -24,6 +24,7 @@ export default function ProductList() {
       description: `test omschrijving ${i.toString()}`,
       posX: i + 10,
       posY: i + 10 * i,
+      imageSrc: `https://source.unsplash.com/random/1000x700/?${i}`,
     };
     testfarms.push(Farm);
     i++;
@@ -34,7 +35,7 @@ export default function ProductList() {
   }
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
+    <div className="grid gap-4 self-center sm:grid-cols-2 md:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
       {data ? data.map((Farm) => <FarmCard key={Farm.id} farm={Farm} />) : null}
       {!data
         ? testfarms.map((Farm) => <FarmCard key={Farm.id} farm={Farm} />)
