@@ -4,5 +4,5 @@ export type Farm = {
   description?: string;
   posX: number;
   posY: number;
-  imageSrc?: string;
+  imageSrc: string;
 };
