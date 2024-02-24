@@ -15,7 +15,7 @@ export default function MapPage() {
       name: "hard coded farm",
       posX: 51.42942599903818,
       posY: 5.457214455372421,
-      imageSrc: ""
+      imageSrc: "",
     },
   ];
 
