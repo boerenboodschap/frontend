@@ -11,7 +11,7 @@ export async function GET(request: any) {
     `${process.env.API_GATEWAY_URL}/farms/my-farm/${user.sub}`,
   );
 
-  //   console.log(fetchres)
+  console.log(fetchres);
 
   if (!fetchres.ok)
     return new Response(`error: ${fetchres.statusText}`, {

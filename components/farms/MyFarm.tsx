@@ -13,6 +13,8 @@ export default function MyFarm() {
     fetcher,
   );
 
+  console.log(data);
+
   if (isLoading) return <Spinner />;
 
   if (error) return <Info type="error" message={error.message} />;

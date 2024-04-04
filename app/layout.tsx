@@ -23,7 +23,7 @@ export default function RootLayout({
         <body
           className={`${inter.className} static h-full w-full bg-background-100/40 bg-repeat pt-14`}
         >
-          <header className="border-b-1 fixed top-0 flex h-14 w-full items-center justify-between gap-12 overflow-auto border bg-background-50 px-2 font-semibold md:px-20 lg:px-64">
+          <header className=" border-b-1 fixed top-0 z-50 flex h-14 w-full items-center justify-between gap-12 overflow-auto border bg-background-50 px-2 font-semibold md:px-20 lg:px-64">
             <nav className="flex items-center gap-4">
               <Link href="/">
                 <Image
