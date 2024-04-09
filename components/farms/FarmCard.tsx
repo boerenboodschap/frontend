@@ -33,7 +33,7 @@ export default function FarmCard(props: Props) {
           className={`${isShown ? "z-20" : null} z-10 rounded-xl bg-white p-4`}
         >
           <h1 className="text-lg font-medium">{props.farm.name}</h1>
-          <h2 className="text-md font-normal">€{props.farm.description}</h2>
+          <h2 className="text-md font-normal">{props.farm.description}</h2>
           <h2 className="text-md font-normal">
             {props.farm.posX} {props.farm.posY}
           </h2>
