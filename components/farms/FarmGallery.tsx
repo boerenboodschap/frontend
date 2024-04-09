@@ -10,8 +10,8 @@ import FarmCard from "./FarmCard";
 export default function ProductList() {
   const [page, setPage] = useState(1);
 
-  const { data, error, isLoading } = useSWR<Farm[]>(
-    () => `/api/farms/`,
+  const { data, error, isLoading } = useSWR<any>(
+    "http://0.0.0.0:8056/items/farms/",
     fetcher,
   );
 
@@ -36,7 +36,7 @@ export default function ProductList() {
 
   return (
     <div className="grid gap-4 self-center sm:grid-cols-2 md:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
-      {data ? data.map((Farm) => <FarmCard key={Farm.id} farm={Farm} />) : null}
+      {data ? data.data.map((Farm: any) => <FarmCard key={Farm.id} farm={Farm} />) : null}
       {!data
         ? testfarms.map((Farm) => <FarmCard key={Farm.id} farm={Farm} />)
         : null}
