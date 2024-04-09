@@ -4,7 +4,8 @@ import L from "leaflet";
 import { Farm } from "@/models/farm";
 
 interface Props {
-  farms: Farm[] | undefined;
+  // farms: Farm[] | undefined;
+  farms: any
 }
 
 export default function Map(props: Props) {
@@ -27,17 +28,17 @@ export default function Map(props: Props) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {props.farms
-        ? props.farms.map((marker) => (
+        ? props.farms.map((marker: any) => (
             <Marker
-              position={[marker.posX, marker.posY]}
+              position={[marker.location.coordinates[1], marker.location.coordinates[0]]}
               icon={icon}
-              key={marker.posX}
+              key={marker.location.coordinates[1]}
             >
               <Popup>
                 <div className="">
                   <h1>{marker.name}</h1>
                   <div>
-                    {marker.posX} {marker.posY}
+                    {marker.location.coordinates[1]} {marker.location.coordinates[0]}
                   </div>
                 </div>
               </Popup>
