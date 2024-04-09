@@ -24,7 +24,7 @@ export default function FarmCard(props: Props) {
         </div> */}
         <Image
           className="z-10 flex aspect-video items-center justify-center rounded-t-xl bg-gray-400 object-cover"
-          src={props.farm.imageSrc}
+          src={props.farm.imageSrc ? props.farm.imageSrc : `https://source.unsplash.com/random/1000x700/?${props.farm.name}`}
           alt="farm image"
           width="500"
           height="500"
