@@ -1,5 +1,4 @@
 "use client";
-import { Farm } from "@/models/farm";
 import fetcher from "@/utils/fetcher";
 import useSWRImmutable from "swr/immutable";
 import dynamic from "next/dynamic";
@@ -16,8 +15,7 @@ export default function MapPage() {
     {
       id: "dsahgjvdsa",
       name: "hard coded farm",
-      posX: 51.42942599903818,
-      posY: 5.457214455372421,
+      location: { coordinates: [5.457214455372421, 51.42942599903818] },
       imageSrc: "",
     },
   ];
