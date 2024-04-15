@@ -1,10 +1,8 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { Farm } from "@/models/farm";
 
 interface Props {
-  // farms: Farm[] | undefined;
   farms: any
 }
 
