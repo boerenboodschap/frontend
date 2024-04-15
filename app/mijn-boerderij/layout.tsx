@@ -1,19 +1,19 @@
-"use client";
+// "use client";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Spinner from "@/components/Spinner";
+import { getServerSession } from "next-auth";
+import RegistrationForm from "../register/form";
 
-export default function MijnBoerderijLayout({
+export default async function MijnBoerderijLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { user, error, isLoading } = useUser();
+  const session = await getServerSession();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
-
-  if (user)
+  if (session)
     return (
       <UserProvider>
         <nav className="border-b-1 fixed top-14 flex h-12 w-full items-center justify-between gap-2 overflow-auto border-b bg-background-50 px-5 font-semibold md:justify-center md:gap-4">
@@ -37,17 +37,25 @@ export default function MijnBoerderijLayout({
       </UserProvider>
     );
 
-  return (
-    <div className="flex h-full w-screen items-center justify-center">
-      <div className="flex flex-col gap-2 rounded-3xl p-4 text-center shadow-xl md:p-12">
-        <h1>Log in om naar je boerderij te gaan.</h1>
-        <Link
-          className="button"
-          href="/api/auth/login?returnTo=/mijn-boerderij"
-        >
-          Login
-        </Link>
-      </div>
-    </div>
-  );
+  return <RegistrationForm />;
+
+  // return (
+  //   <div className="flex h-full w-screen items-center justify-center gap-4">
+  //     <div className="flex flex-col gap-2 rounded-3xl bg-primary-200/50 p-4 text-center shadow-xl md:p-12">
+  //       <h1>Log in om naar je boerderij te gaan.</h1>
+  //       <Link
+  //         className="button"
+  //         href="/api/auth/login?returnTo=/mijn-boerderij"
+  //       >
+  //         Login
+  //       </Link>
+  //     </div>
+  //     <div className="flex flex-col gap-2 rounded-3xl bg-primary-200/50 p-4 text-center shadow-xl md:p-12">
+  //       <h1>Directus Login</h1>
+  //       <Link className="button" href="">
+  //         Login
+  //       </Link>
+  //     </div>
+  //   </div>
+  // );
 }
