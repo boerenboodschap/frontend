@@ -1,10 +1,7 @@
-// "use client";
-// import { UserProvider } from "@auth0/nextjs-auth0/client";
 import Link from "next/link";
-// import { useUser } from "@auth0/nextjs-auth0/client";
 import Spinner from "@/components/Spinner";
 import { getServerSession } from "next-auth";
-import RegistrationForm from "../register/form";
+import LoginForm from "../login/form";
 
 export default async function MijnBoerderijLayout({
   children,
@@ -37,7 +34,7 @@ export default async function MijnBoerderijLayout({
       </div>
     );
 
-  return <RegistrationForm />;
+  return <LoginForm />;
 
   // return (
   //   <div className="flex h-full w-screen items-center justify-center gap-4">
