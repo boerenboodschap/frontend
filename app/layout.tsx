@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -18,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <UserProvider>
+    // <UserProvider>
       <html lang="en" className="h-screen w-screen">
         <body
           className={`${inter.className} static h-full w-full bg-background-100/40 bg-repeat pt-14`}
@@ -52,6 +51,6 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </UserProvider>
+    // </UserProvider>
   );
 }

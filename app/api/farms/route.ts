@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  getAccessToken,
-  getSession,
-  withApiAuthRequired,
-} from "@auth0/nextjs-auth0";
+// import {
+//   getAccessToken,
+//   getSession,
+//   withApiAuthRequired,
+// } from "@auth0/nextjs-auth0";
 
 export async function GET(request: NextRequest) {
   const fetchres = await fetch(`${process.env.API_GATEWAY_URL}/farms`);

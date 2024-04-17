@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Info from "../Info";
 import Spinner from "../Spinner";
-import { useUser } from "@auth0/nextjs-auth0/client";
+// import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function CreateFarm() {
   const [farmName, setFarmName] = useState("");
@@ -10,9 +10,9 @@ export default function CreateFarm() {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
 
-  const { user, isLoading } = useUser();
-  if (isLoading) return <Spinner />;
-  if (!user) return "login required";
+  // const { user, isLoading } = useUser();
+  // if (isLoading) return <Spinner />;
+  // if (!user) return "login required";
 
   function handleProductNameChange(e: any) {
     setFarmName(e.target.value);
@@ -24,7 +24,8 @@ export default function CreateFarm() {
     setOutput("");
 
     const body: BodyInit = JSON.stringify({
-      UserId: user?.sub ?? "UserID",
+      // UserId: user?.sub ?? "UserID",
+      UserId: "HARDCODED",
       Name: farmName,
       Description: "Super gave boerderij",
       PosX: 2.3,

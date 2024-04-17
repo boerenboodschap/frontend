@@ -1,9 +1,11 @@
-import { getSession } from "@auth0/nextjs-auth0";
+// import { getSession } from "@auth0/nextjs-auth0";
 import { NextResponse } from "next/server";
 
 export async function GET(request: any) {
   const res = new NextResponse();
-  const { user }: any = await getSession(request, res);
+  // const { user }: any = await getSession(request, res);
+
+  const user = {sub: "HARD_CODED"}
 
   console.log(`${process.env.API_GATEWAY_URL}/farms/my-farm/${user.sub}`);
 

@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { getAccessToken, withApiAuthRequired } from "@auth0/nextjs-auth0";
+// import { getAccessToken, withApiAuthRequired } from "@auth0/nextjs-auth0";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;

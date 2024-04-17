@@ -1,7 +1,7 @@
 // "use client";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
+// import { UserProvider } from "@auth0/nextjs-auth0/client";
 import Link from "next/link";
-import { useUser } from "@auth0/nextjs-auth0/client";
+// import { useUser } from "@auth0/nextjs-auth0/client";
 import Spinner from "@/components/Spinner";
 import { getServerSession } from "next-auth";
 import RegistrationForm from "../register/form";
@@ -15,7 +15,7 @@ export default async function MijnBoerderijLayout({
 
   if (session)
     return (
-      <UserProvider>
+      <div>
         <nav className="border-b-1 fixed top-14 flex h-12 w-full items-center justify-between gap-2 overflow-auto border-b bg-background-50 px-5 font-semibold md:justify-center md:gap-4">
           <Link href="/mijn-boerderij" className="">
             Boerderij
@@ -34,7 +34,7 @@ export default async function MijnBoerderijLayout({
           </div>
         </nav>
         <div className="px-2 pt-14 md:px-10 lg:px-60">{children}</div>
-      </UserProvider>
+      </div>
     );
 
   return <RegistrationForm />;

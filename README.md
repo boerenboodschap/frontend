@@ -4,11 +4,17 @@ A nextjs applicaton for the BoerenBoodschap project. This reads from and writes 
 
 https://www.gradientmagic.com/collection/lightbg/gradient/1583799604316
 
-## Status
+## TODO
+
+### Nu
 
 - Directus auth integratie netjes maken en goed integreren met de mijn boerderij pagina's.
-
+- Inloggen met directus account
 - Mijn boerderij functionaliteiten maken.
+
+### Later
+
+- Email implementatie
 
 ## Requirements
 

@@ -16,7 +16,7 @@ export const options: NextAuthOptions = {
       },
       async authorize(credentials) {
         // Add logic here to look up the user from the credentials supplied
-        const res = await fetch('your-directus-project-url/auth/login', {
+        const res = await fetch(`${process.env.BACKEND_URL}/auth/login`, {
           method: 'POST',
           body: JSON.stringify(credentials),
           headers: { 'Content-Type': 'application/json' },

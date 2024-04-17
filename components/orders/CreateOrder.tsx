@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Info from "../Info";
 import Spinner from "../Spinner";
-import { useUser } from "@auth0/nextjs-auth0/client";
+// import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function CreateOrder() {
   const [productName, setProductName] = useState("");
@@ -10,9 +10,11 @@ export default function CreateOrder() {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
 
-  const { user, isLoading } = useUser();
-  if (isLoading) return <Spinner />;
-  if (!user) return "login required";
+  // const { user, isLoading } = useUser();
+  // if (isLoading) return <Spinner />;
+  // if (!user) return "login required";
+
+  const user = {sub: "HARD_CODED"};
 
   function handleProductNameChange(e: any) {
     setProductName(e.target.value);
