@@ -10,6 +10,8 @@ export default async function MijnBoerderijLayout({
 }) {
   const session = await getServerSession();
 
+  console.log(session);
+
   if (session)
     return (
       <div>

@@ -8,8 +8,8 @@ https://www.gradientmagic.com/collection/lightbg/gradient/1583799604316
 
 ### Nu
 
-- Directus auth integratie netjes maken en goed integreren met de mijn boerderij pagina's.
-- Inloggen met directus account
+- Data uit session cookie halen.
+- Authenticated request maken naar directus (voor het maken van een farm bijvoorbeeld).
 - Mijn boerderij functionaliteiten maken.
 
 ### Later

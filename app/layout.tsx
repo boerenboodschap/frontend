@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,13 +12,14 @@ export const metadata: Metadata = {
   description: "Koop producten direct bij een boer.",
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface Props {
   children: React.ReactNode;
-}) {
+  // session: any;
+}
+
+export default function RootLayout(props: Props) {
   return (
-    // <UserProvider>
+    // <SessionProvider session={props.session}>
       <html lang="en" className="h-screen w-screen">
         <body
           className={`${inter.className} static h-full w-full bg-background-100/40 bg-repeat pt-14`}
@@ -48,9 +50,9 @@ export default function RootLayout({
               </Link>
             </nav>
           </header>
-          {children}
+          {props.children}
         </body>
       </html>
-    // </UserProvider>
+    // </SessionProvider>
   );
 }

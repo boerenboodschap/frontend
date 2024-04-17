@@ -15,6 +15,11 @@ export default function ProductList() {
     fetcher,
   );
 
+  // const { data, error, isLoading } = useSWR<any>(
+  //   "/api/farms",
+  //   fetcher,
+  // );
+
   const testfarms = [];
   let i = 0;
   while (i < 5) {
