@@ -6,6 +6,8 @@ https://www.gradientmagic.com/collection/lightbg/gradient/1583799604316
 
 ## TODO
 
+mobiele navigatie op homescreen en mijn boerderij met een onderbalk
+
 ### Nu
 
 - Data uit session cookie halen.
