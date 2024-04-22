@@ -22,7 +22,7 @@ export default function MapPage() {
   // ];
 
   return (
-    <div id="map" className="h-full w-full">
+    <div id="map" className="h-full w-full pb-14 md:pb-0">
       <Map farms={data ? data.data : MockFarms} />
     </div>
   );

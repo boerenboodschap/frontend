@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 interface Props {
-  farms: any
+  farms: any;
 }
 
 export default function Map(props: Props) {
@@ -19,6 +19,7 @@ export default function Map(props: Props) {
       center={[52.132633, 5.291266]}
       zoom={8}
       scrollWheelZoom={true}
+      attributionControl={false}
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
@@ -28,7 +29,10 @@ export default function Map(props: Props) {
       {props.farms
         ? props.farms.map((marker: any) => (
             <Marker
-              position={[marker.location.coordinates[1], marker.location.coordinates[0]]}
+              position={[
+                marker.location.coordinates[1],
+                marker.location.coordinates[0],
+              ]}
               icon={icon}
               key={marker.location.coordinates[1]}
             >
@@ -36,7 +40,8 @@ export default function Map(props: Props) {
                 <div className="">
                   <h1>{marker.name}</h1>
                   <div>
-                    {marker.location.coordinates[1]} {marker.location.coordinates[0]}
+                    {marker.location.coordinates[1]}{" "}
+                    {marker.location.coordinates[0]}
                   </div>
                 </div>
               </Popup>
