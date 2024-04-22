@@ -2,25 +2,27 @@
 import { NextResponse } from "next/server";
 
 export async function GET(request: any) {
-  const res = new NextResponse();
-  // const { user }: any = await getSession(request, res);
+  // const res = new NextResponse();
+  // // const { user }: any = await getSession(request, res);
 
-  const user = {sub: "HARD_CODED"}
+  // const user = {sub: "HARD_CODED"}
 
-  console.log(`${process.env.API_GATEWAY_URL}/farms/my-farm/${user.sub}`);
+  // console.log(`${process.env.API_GATEWAY_URL}/farms/my-farm/${user.sub}`);
 
-  const fetchres = await fetch(
-    `${process.env.API_GATEWAY_URL}/farms/my-farm/${user.sub}`,
-  );
+  // const fetchres = await fetch(
+  //   `${process.env.API_GATEWAY_URL}/farms/my-farm/${user.sub}`,
+  // );
 
-  console.log(fetchres);
+  // console.log(fetchres);
 
-  if (!fetchres.ok)
-    return new Response(`error: ${fetchres.statusText}`, {
-      status: fetchres.status,
-    });
+  // if (!fetchres.ok)
+  //   return new Response(`error: ${fetchres.statusText}`, {
+  //     status: fetchres.status,
+  //   });
 
-  const data = await fetchres.json();
+  // const data = await fetchres.json();
 
-  return Response.json(data);
+  // return Response.json(data);
+
+  return Response.json({});
 }

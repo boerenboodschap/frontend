@@ -8,20 +8,21 @@ import Spinner from "../Spinner";
 import CreateFarm from "./CreateFarm";
 
 export default function MyFarm() {
-  const { data, error, isLoading } = useSWRImmutable<Farm>(
-    "/api/farms/my-farm",
-    fetcher,
-  );
+  // const { data, error, isLoading } = useSWRImmutable<Farm>(
+  //   "/api/farms/my-farm",
+  //   fetcher,
+  // );
 
-  console.log(data);
+  // console.log(data);
 
-  if (isLoading) return <Spinner />;
+  // if (isLoading) return <Spinner />;
 
-  if (error) return <Info type="error" message={error.message} />;
+  // if (error) return <Info type="error" message={error.message} />;
 
-  if (!data) return <CreateFarm />;
+  // if (!data) return <CreateFarm />;
 
-  console.log(data);
+  // console.log(data);
 
-  return <div>{data.name}</div>;
+  // return <div>{data.name}</div>;
+  return <div>Mijn Boerderij</div>;
 }

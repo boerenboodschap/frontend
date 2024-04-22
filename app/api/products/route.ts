@@ -14,41 +14,41 @@ export async function GET(request: NextRequest) {
   return Response.json(data);
 }
 
-export const POST = withApiAuthRequired(async function POST(request: Request) {
-  // export async function POST(request: Request) {
-  const accessToken = await getAccessToken();
-  const requestData = await request.json();
+// export const POST = withApiAuthRequired(async function POST(request: Request) {
+//   // export async function POST(request: Request) {
+//   const accessToken = await getAccessToken();
+//   const requestData = await request.json();
 
-  console.log(accessToken);
+//   console.log(accessToken);
 
-  const body = JSON.stringify({
-    Name: requestData.Name,
-    Category: requestData.Category,
-    Description: requestData.Description,
-    Price: requestData.Price,
-    Stock: requestData.Stock,
-  });
+//   const body = JSON.stringify({
+//     Name: requestData.Name,
+//     Category: requestData.Category,
+//     Description: requestData.Description,
+//     Price: requestData.Price,
+//     Stock: requestData.Stock,
+//   });
 
-  const requestOptions: RequestInit = {
-    method: "POST",
-    body: body,
-    credentials: "include",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-  };
+//   const requestOptions: RequestInit = {
+//     method: "POST",
+//     body: body,
+//     credentials: "include",
+//     headers: {
+//       Authorization: `Bearer ${accessToken}`,
+//       "Content-Type": "application/json",
+//     },
+//   };
 
-  const fetchres = await fetch(
-    `${process.env.API_GATEWAY_URL}/products`,
-    requestOptions,
-  );
+//   const fetchres = await fetch(
+//     `${process.env.API_GATEWAY_URL}/products`,
+//     requestOptions,
+//   );
 
-  // console.log(fetchres);
+//   // console.log(fetchres);
 
-  if (fetchres.status === 500) return Response.error();
+//   if (fetchres.status === 500) return Response.error();
 
-  const data = await fetchres.json();
+//   const data = await fetchres.json();
 
-  return Response.json({ data });
-});
+//   return Response.json({ data });
+// });
