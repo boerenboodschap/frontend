@@ -24,7 +24,7 @@ export default function ProductList() {
     setPage(e.target.value);
   }
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="my-2 flex w-full flex-col gap-2 rounded-lg bg-primary-100 p-2 lg:p-5">

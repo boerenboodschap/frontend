@@ -6,6 +6,7 @@ import useSWR from "swr";
 import Spinner from "../Spinner";
 import Info from "../Info";
 import FarmCard from "./FarmCard";
+import useSWRInfinite from "swr";
 
 export default function FarmGallery() {
   const [page, setPage] = useState(1);
@@ -15,10 +16,7 @@ export default function FarmGallery() {
   //   fetcher,
   // );
 
-  const { data, error, isLoading } = useSWR<any>(
-    `/api/farms`,
-    fetcher,
-  );
+  const { data, error, isLoading } = useSWRInfinite<any>(`/api/farms`, fetcher);
 
   // const { data, error, isLoading } = useSWR<any>(
   //   "/api/farms",
@@ -30,11 +28,14 @@ export default function FarmGallery() {
   while (i < 5) {
     let Farm: Farm = {
       id: i.toString(),
-      name: `test boerderij ${i.toString()}`,
-      description: `test omschrijving ${i.toString()}`,
-      posX: i + 10,
-      posY: i + 10 * i,
-      imageSrc: `https://source.unsplash.com/random/1000x700/?${i}`,
+      attributes: {
+        id: i.toString(),
+        name: `test boerderij ${i.toString()}`,
+        description: `test omschrijving ${i.toString()}`,
+        posX: i + 10,
+        posY: i + 10 * i,
+        imageSrc: `https://source.unsplash.com/random/1000x700/?${i}`,
+      },
     };
     testfarms.push(Farm);
     i++;
@@ -44,11 +45,19 @@ export default function FarmGallery() {
     setPage(e.target.value);
   }
 
+  // console.log(data);
+
   return (
     <div className="grid gap-4 self-center sm:grid-cols-2 md:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
-      {data ? data.data.map((Farm: any) => <FarmCard key={Farm.id} farm={Farm} />) : null}
+      {data
+        ? data.data.map((Farm: any) => (
+            <FarmCard key={Farm.id} farm={Farm.attributes} id={Farm.id} />
+          ))
+        : null}
       {!data
-        ? testfarms.map((Farm) => <FarmCard key={Farm.id} farm={Farm} />)
+        ? testfarms.map((Farm) => (
+            <FarmCard key={Farm.id} farm={Farm.attributes} id={Farm.id} />
+          ))
         : null}
       {error ? (
         <Info type="error" message={error.message ? error.message : "error"} />

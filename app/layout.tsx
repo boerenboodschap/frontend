@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SessionProvider } from "next-auth/react";
 import BottomNavLink from "@/components/BottomNavLink";
+import NavLink from "@/components/NavLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,7 @@ export default function RootLayout(props: Props) {
       >
         <header className="border-b-1 fixed top-0 z-50 flex h-14 w-full items-center justify-between gap-12 overflow-auto border bg-background-50 px-2 font-semibold md:px-20 lg:px-64">
           <nav className="flex items-center gap-4">
-            <Link href="/">
+            <Link href="/boeren">
               <Image
                 alt="boerenboodschap mascotte"
                 src="/boerboodschap_mascot.webp"
@@ -42,27 +43,18 @@ export default function RootLayout(props: Props) {
               help en info
             </Link>
           </nav>
-          <nav className="flex h-full items-center justify-between gap-10">
-            <Link href="/boeren" className="hover:text-primary-700">
-              Boeren
-            </Link>
-            <Link href="/producten" className="hover:text-primary-700">
-              Producten
-            </Link>
-            <Link href="/kaart" className="hover:text-primary-700">
-              Kaart
-            </Link>
-            <Link href="/mijn-boerderij" className="hover:text-primary-700">
-              Mijn Boerderij
-            </Link>
+          <nav className="hidden h-full items-center justify-between gap-10 md:flex">
+            <NavLink href="/boeren" text="Boeren" />
+            <NavLink href="/producten" text="Producten" />
+            <NavLink href="/kaart" text="Kaart" />
+            <NavLink href="/mijn-boerderij" text="Mijn Boerderij" />
           </nav>
         </header>
         {props.children}
         <footer
-          className={`fixed bottom-0 z-50 h-14 w-full bg-background-50 md:hidden`}
+          className={`fixed bottom-0 z-50 h-14 w-full border-2 border-t-gray-200 bg-background-50 md:hidden`}
         >
           <nav className="flex h-full justify-around text-sm">
-            <BottomNavLink href="/" icon="🏠" text="Home" />
             <BottomNavLink href="/boeren" icon="👨‍🌾" text="Boeren" />
             <BottomNavLink href="/producten" icon="🥕" text="Producten" />
             <BottomNavLink href="/kaart" icon="🗺" text="Kaart" />

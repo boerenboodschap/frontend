@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import CreateFarm from "@/components/farms/CreateFarm";
 import MyFarm from "@/components/farms/MyFarm";

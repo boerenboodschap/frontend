@@ -1,15 +1,15 @@
-import type { NextAuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import { Session } from 'next-auth';
-import directus from '@/utils/directus';
-import { readMe, withToken } from '@directus/sdk';
-import { JWT } from 'next-auth/jwt';
+import type { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { Session } from "next-auth";
+import directus from "@/utils/directus";
+import { readMe, withToken } from "@directus/sdk";
+import { JWT } from "next-auth/jwt";
 
 export const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
-      name: 'Credentials',
+      name: "Credentials",
       credentials: {
         email: {},
         password: {},
@@ -17,14 +17,14 @@ export const options: NextAuthOptions = {
       async authorize(credentials) {
         // Add logic here to look up the user from the credentials supplied
         const res = await fetch(`${process.env.BACKEND_URL}/auth/login`, {
-          method: 'POST',
+          method: "POST",
           body: JSON.stringify(credentials),
-          headers: { 'Content-Type': 'application/json' },
+          headers: { "Content-Type": "application/json" },
         });
         const user = await res.json();
         // If no error and we have user data, return it
         if (!res.ok && user) {
-          throw new Error('Email address or password is invalid');
+          throw new Error("Email address or password is invalid");
         }
         if (res.ok && user) {
           return user;
@@ -36,7 +36,7 @@ export const options: NextAuthOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/login',
+    signIn: "/login",
   },
   callbacks: {
     async jwt({
@@ -53,9 +53,9 @@ export const options: NextAuthOptions = {
           withToken(
             user.data.access_token as string,
             readMe({
-              fields: ['id', 'first_name', 'last_name'],
-            })
-          )
+              fields: ["id", "first_name", "last_name"],
+            }),
+          ),
         );
         return {
           ...token,

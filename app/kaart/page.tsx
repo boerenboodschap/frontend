@@ -5,10 +5,7 @@ import dynamic from "next/dynamic";
 import { MockFarms } from "@/utils/mock-farms";
 
 export default function MapPage() {
-  const { data } = useSWRImmutable<any>(
-    "/api/farms",
-    fetcher,
-  );
+  const { data } = useSWRImmutable<any>("/api/farms", fetcher);
 
   const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 

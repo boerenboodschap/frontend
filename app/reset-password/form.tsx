@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { FormEvent, useState } from 'react';
-import { passwordRequest } from '@directus/sdk';
-import directus from '@/utils/directus';
+import Link from "next/link";
+import { FormEvent, useState } from "react";
+import { passwordRequest } from "@directus/sdk";
+import directus from "@/utils/directus";
 
 export default function RequestResetPasswordForm() {
-  const [email, setEmail] = useState('');
-  const [success, setSuccess] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
   const reset_url = `${process.env.NEXT_PUBLIC_URL}/reset-password`;
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -16,15 +16,15 @@ export default function RequestResetPasswordForm() {
 
     try {
       const response = await directus.request(
-        passwordRequest(email, reset_url)
+        passwordRequest(email, reset_url),
       );
       setSuccess(
-        'An email with a password reset link has been sent to your email!'
+        "An email with a password reset link has been sent to your email!",
       );
     } catch (e: any) {
-      console.log(e);
+      // console.log(e);
       if (e) {
-        setError('An error occurred, please try again!');
+        setError("An error occurred, please try again!");
       }
     }
   };

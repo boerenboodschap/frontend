@@ -14,11 +14,13 @@ export async function GET(request: NextRequest) {
   //   credentials: "include",
   // });
 
-  const fetchres = await fetch(`${process.env.BACKEND_URL}/api/farms`);
+  const fetchres = await fetch(`${process.env.BACKEND_URL}/api/farms`, {
+    cache: "no-store",
+  });
 
   const data = await fetchres.json();
 
-  console.log(fetchres)
+  // console.log(fetchres)
 
   return Response.json(data);
 

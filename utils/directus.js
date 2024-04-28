@@ -4,11 +4,10 @@
 
 // export default directus;
 
-
-import { createDirectus, rest, authentication } from '@directus/sdk';
+import { createDirectus, rest, authentication } from "@directus/sdk";
 
 const directus = createDirectus(process.env.BACKEND_URL)
-  .with(authentication("cookie", {credentials: "include", autoRefresh: true}))
+  .with(authentication("cookie", { credentials: "include", autoRefresh: true }))
   .with(rest());
 
 export default directus;

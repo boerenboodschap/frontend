@@ -14,7 +14,7 @@ export default function CreateProduct() {
   // if (isLoading) return <Spinner />;
   // if (!user) return "login required";
 
-  const user = {sub: "HARD_CODED"}
+  const user = { sub: "HARD_CODED" };
 
   function handleProductNameChange(e: any) {
     setProductName(e.target.value);

@@ -33,7 +33,7 @@ export default function ProductGallery() {
     setPage(e.target.value);
   }
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="grid gap-4 self-center sm:grid-cols-2 md:grid-cols-3 xl:gap-8 2xl:grid-cols-4">

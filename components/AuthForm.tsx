@@ -85,16 +85,10 @@ export default function AuthForm({
         required
         onChange={handleInputChange}
       />
-      <button>
-        {buttonText}
-      </button>
+      <button>{buttonText}</button>
       <p>
         {linkDescription}
-        <Link
-          href={linkHref}
-        >
-          {linkText}
-        </Link>
+        <Link href={linkHref}>{linkText}</Link>
       </p>
     </form>
   );

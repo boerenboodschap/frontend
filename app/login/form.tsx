@@ -1,10 +1,10 @@
-'use client';
-import Link from 'next/link';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+"use client";
+import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-import AuthForm from '@/components/AuthForm';
-import { useState } from 'react';
+import AuthForm from "@/components/AuthForm";
+import { useState } from "react";
 
 interface Data {
   email?: string;
@@ -13,19 +13,19 @@ interface Data {
 
 export default function LoginForm() {
   const router = useRouter();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const handleFormSubmit = async (data: Data) => {
-    const response = await signIn('credentials', {
+    const response = await signIn("credentials", {
       email: data.email,
       password: data.password,
       redirect: false,
     });
     if (!response?.error) {
-      router.push('/mijn-boerderij');
+      router.push("/mijn-boerderij");
       router.refresh();
     } else {
       response.status === 401
-        ? setError('Your email or password is incorrect')
+        ? setError("Your email or password is incorrect")
         : null;
     }
   };
@@ -43,11 +43,7 @@ export default function LoginForm() {
         isFullForm={false}
       />
       <div>
-        <Link
-          href="/request-reset-password"
-        >
-          Forgot password?
-        </Link>
+        <Link href="/request-reset-password">Forgot password?</Link>
       </div>
     </>
   );

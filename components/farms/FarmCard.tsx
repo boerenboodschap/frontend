@@ -4,11 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 
-interface Props {
-  farm: Farm;
-}
-
-export default function FarmCard(props: Props) {
+export default function FarmCard({ farm, id }: any) {
   const [isShown, setIsShown] = useState(false);
 
   return (
@@ -24,7 +20,11 @@ export default function FarmCard(props: Props) {
         </div> */}
         <Image
           className="z-10 flex aspect-video items-center justify-center rounded-t-xl bg-gray-400 object-cover"
-          src={props.farm.imageSrc ? props.farm.imageSrc : `https://source.unsplash.com/random/1000x700/?${props.farm.name}`}
+          src={
+            farm.imageSrc
+              ? farm.imageSrc
+              : `https://source.unsplash.com/random/1000x700/?${farm.name}`
+          }
           alt="farm image"
           width="500"
           height="500"
@@ -32,16 +32,16 @@ export default function FarmCard(props: Props) {
         <div
           className={`${isShown ? "z-20" : null} z-10 rounded-xl bg-white p-4`}
         >
-          <h1 className="text-lg font-medium">{props.farm.name}</h1>
-          <h2 className="text-md font-normal">{props.farm.description}</h2>
+          <h1 className="text-lg font-medium">{farm.name}</h1>
+          <h2 className="text-md font-normal">{farm.description}</h2>
           <h2 className="text-md font-normal">
-            {props.farm.posX} {props.farm.posY}
+            {farm.posX} {farm.posY}
           </h2>
         </div>
         <div className="flex w-full justify-center rounded-b-xl p-2">
           <Link
-            href={`/boerderij/${props.farm.id}`}
-            className="w-full text-center text-lg rounded-lg border-2 border-gray-300 bg-white p-4 transition-colors hover:bg-gray-100"
+            href={`/boeren/${id}`}
+            className="w-full rounded-lg border-2 border-gray-300 bg-white p-4 text-center text-lg transition-colors hover:bg-gray-100"
           >
             assortiment
           </Link>

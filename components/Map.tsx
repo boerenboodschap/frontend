@@ -27,26 +27,24 @@ export default function Map(props: Props) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {props.farms
-        ? props.farms.map((marker: any) => (
-            <Marker
-              position={[
-                marker.attributes.posX,
-                marker.attributes.posY,
-              ]}
-              icon={icon}
-              key={marker.attributes.posY}
-            >
-              <Popup>
-                <div className="">
-                  <h1>{marker.attributes.name}</h1>
-                  <div>
-                    {marker.attributes.posY}{" "}
-                    {marker.attributes.posX}
+        ? props.farms.map((marker: any) =>
+            marker.attributes.posX && marker.attributes.posY ? (
+              <Marker
+                position={[marker.attributes.posX, marker.attributes.posY]}
+                icon={icon}
+                key={marker.attributes.posY}
+              >
+                <Popup>
+                  <div className="">
+                    <h1>{marker.attributes.name}</h1>
+                    <div>
+                      {marker.attributes.posY} {marker.attributes.posX}
+                    </div>
                   </div>
-                </div>
-              </Popup>
-            </Marker>
-          ))
+                </Popup>
+              </Marker>
+            ) : null,
+          )
         : null}
     </MapContainer>
   );
