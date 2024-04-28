@@ -10,7 +10,7 @@ export default function FarmCard({ farm, id }: any) {
   return (
     <Card>
       <div
-        className={`${isShown ? "z-20" : null} relative z-10 flex h-full w-full flex-col rounded-xl`}
+        className={`${isShown ? "z-20" : null} relative z-10 flex h-full w-full flex-col rounded-xl bg-background-400`}
         onMouseEnter={() => setIsShown(true)}
         onMouseLeave={() => setIsShown(false)}
         // href={`/farm/${props.farm.id}`}
@@ -21,17 +21,16 @@ export default function FarmCard({ farm, id }: any) {
         <Image
           className="z-10 flex aspect-video items-center justify-center rounded-t-xl bg-gray-400 object-cover"
           src={
-            farm.imageSrc
-              ? farm.imageSrc
-              : `https://source.unsplash.com/random/1000x700/?${farm.name}`
+            farm.coverUrl
+              ? farm.coverUrl
+              : // : 'http://167.235.144.110:1337/uploads/2k_a6b2584761.jpg'
+                `https://source.unsplash.com/random/1000x700/?${farm.name}`
           }
           alt="farm image"
           width="500"
           height="500"
         ></Image>
-        <div
-          className={`${isShown ? "z-20" : null} z-10 rounded-xl bg-white p-4`}
-        >
+        <div className={`${isShown ? "z-20" : null} z-10 h-full bg-white p-4`}>
           <h1 className="text-lg font-medium">{farm.name}</h1>
           <h2 className="text-md font-normal">{farm.description}</h2>
           <h2 className="text-md font-normal">

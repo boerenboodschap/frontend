@@ -35,6 +35,8 @@ export default function FarmGallery() {
         posX: i + 10,
         posY: i + 10 * i,
         imageSrc: `https://source.unsplash.com/random/1000x700/?${i}`,
+        coverUrl: `https://source.unsplash.com/random/1000x700/?${i}`,
+        // coverUrl: 'http://167.235.144.110:1337/uploads/2k_a6b2584761.jpg',
       },
     };
     testfarms.push(Farm);

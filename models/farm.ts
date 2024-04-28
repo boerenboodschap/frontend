@@ -7,5 +7,6 @@ export type Farm = {
     posX: number;
     posY: number;
     imageSrc: string;
+    coverUrl: string;
   };
 };
