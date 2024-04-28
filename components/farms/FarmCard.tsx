@@ -10,7 +10,7 @@ export default function FarmCard({ farm, id }: any) {
   return (
     <Card>
       <div
-        className={`${isShown ? "z-20" : null} relative z-10 flex h-full w-full flex-col rounded-xl bg-background-400`}
+        className={`${isShown ? "z-20" : null} relative z-10 flex h-full w-full flex-col rounded-xl`}
         onMouseEnter={() => setIsShown(true)}
         onMouseLeave={() => setIsShown(false)}
         // href={`/farm/${props.farm.id}`}
