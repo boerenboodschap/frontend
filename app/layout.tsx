@@ -42,11 +42,17 @@ export default function RootLayout(props: Props) {
               help en info
             </Link>
           </nav>
-          <nav className="flex items-center justify-between gap-10">
+          <nav className="flex h-full items-center justify-between gap-10">
+            <Link href="/boeren" className="hover:text-primary-700">
+              Boeren
+            </Link>
+            <Link href="/producten" className="hover:text-primary-700">
+              Producten
+            </Link>
             <Link href="/kaart" className="hover:text-primary-700">
               Kaart
             </Link>
-            <Link href="/mijn-boerderij" className="nav-link">
+            <Link href="/mijn-boerderij" className="hover:text-primary-700">
               Mijn Boerderij
             </Link>
           </nav>

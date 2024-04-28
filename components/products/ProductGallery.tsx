@@ -7,7 +7,7 @@ import Spinner from "../Spinner";
 import Info from "../Info";
 import ProductCard from "./ProductCard";
 
-export default function ProductList() {
+export default function ProductGallery() {
   const [page, setPage] = useState(1);
 
   //   const { data, error, isLoading } = useSWR<Product[]>(

@@ -7,7 +7,7 @@ import Spinner from "../Spinner";
 import Info from "../Info";
 import FarmCard from "./FarmCard";
 
-export default function ProductList() {
+export default function FarmGallery() {
   const [page, setPage] = useState(1);
 
   // const { data, error, isLoading } = useSWR<any>(

@@ -41,12 +41,3 @@
   padding: 0.1em 0.4em 0.1em 0.4em;
   border-radius: 1em;
 }
-
-.nav-link {
-  transition: all 0.2s ease-out;
-}
-
-.nav-link:hover {
-  text-shadow: 0px 5px 15px #40ad42;
-  transition: all 0.2s ease-in;
-}
