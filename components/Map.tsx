@@ -30,18 +30,18 @@ export default function Map(props: Props) {
         ? props.farms.map((marker: any) => (
             <Marker
               position={[
-                marker.location.coordinates[1],
-                marker.location.coordinates[0],
+                marker.attributes.posX,
+                marker.attributes.posY,
               ]}
               icon={icon}
-              key={marker.location.coordinates[1]}
+              key={marker.attributes.posY}
             >
               <Popup>
                 <div className="">
-                  <h1>{marker.name}</h1>
+                  <h1>{marker.attributes.name}</h1>
                   <div>
-                    {marker.location.coordinates[1]}{" "}
-                    {marker.location.coordinates[0]}
+                    {marker.attributes.posY}{" "}
+                    {marker.attributes.posX}
                   </div>
                 </div>
               </Popup>

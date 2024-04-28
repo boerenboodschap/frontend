@@ -10,8 +10,13 @@ import FarmCard from "./FarmCard";
 export default function ProductList() {
   const [page, setPage] = useState(1);
 
+  // const { data, error, isLoading } = useSWR<any>(
+  //   "http://0.0.0.0:8056/items/farms/",
+  //   fetcher,
+  // );
+
   const { data, error, isLoading } = useSWR<any>(
-    "http://0.0.0.0:8056/items/farms/",
+    `/api/farms`,
     fetcher,
   );
 

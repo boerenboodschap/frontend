@@ -9,10 +9,12 @@ import { NextRequest, NextResponse } from "next/server";
 // } from "@auth0/nextjs-auth0";
 
 export async function GET(request: NextRequest) {
-  const session = await getServerSession();
-  const fetchres = await fetch(`${process.env.API_GATEWAY_URL}/farms`, {
-    credentials: "include",
-  });
+  // const session = await getServerSession();
+  // const fetchres = await fetch(`${process.env.API_GATEWAY_URL}/farms`, {
+  //   credentials: "include",
+  // });
+
+  const fetchres = await fetch(`${process.env.BACKEND_URL}/api/farms`);
 
   const data = await fetchres.json();
 

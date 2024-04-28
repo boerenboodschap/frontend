@@ -6,7 +6,7 @@ import { MockFarms } from "@/utils/mock-farms";
 
 export default function MapPage() {
   const { data } = useSWRImmutable<any>(
-    "http://0.0.0.0:8056/items/farms/",
+    "/api/farms",
     fetcher,
   );
 
@@ -21,9 +21,13 @@ export default function MapPage() {
   //   },
   // ];
 
+  // if (data === undefined || !data.data) return <div>Loading...</div>
+
+  // console.log(data.data)
+
   return (
     <div id="map" className="h-full w-full pb-14 md:pb-0">
-      <Map farms={data ? data.data : MockFarms} />
+      <Map farms={data !== undefined && data.data ? data.data : MockFarms} />
     </div>
   );
 }
