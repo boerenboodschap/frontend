@@ -24,7 +24,7 @@ export default function RootLayout(props: Props) {
     // <SessionProvider session={props.session}>
     <html lang="en" className="h-screen w-screen">
       <body
-        className={`${inter.className} static h-full w-full bg-background-100/40 bg-repeat pt-14`}
+        className={`${inter.className} static w-full bg-background-100/40 bg-repeat mt-14 mb-14`}
       >
         <header className="border-b-1 fixed top-0 z-50 flex h-14 w-full items-center justify-between gap-12 overflow-auto border bg-background-50 px-2 font-semibold md:px-20 lg:px-64">
           <nav className="flex items-center gap-4">
@@ -50,11 +50,11 @@ export default function RootLayout(props: Props) {
             <NavLink href="/mijn-boerderij" text="Mijn Boerderij" />
           </nav>
         </header>
-        {props.children}
+        <div className="relative mt-14 mb-14 md:mb-0">{props.children}</div>
         <footer
-          className={`fixed bottom-0 z-50 h-14 w-full border-2 border-t-gray-200 bg-background-50 md:hidden`}
+          className={`fixed bottom-0 z-50 h-14 w-full border-t-2 border-t-gray-200 bg-background-50 md:hidden`}
         >
-          <nav className="flex h-full justify-around text-sm">
+          <nav className="flex h-full w-screen text-sm">
             <BottomNavLink href="/boeren" icon="👨‍🌾" text="Boeren" />
             <BottomNavLink href="/producten" icon="🥕" text="Producten" />
             <BottomNavLink href="/kaart" icon="🗺" text="Kaart" />
