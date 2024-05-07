@@ -4,8 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface Data {
-  first_name?: string;
-  last_name?: string;
+  username?: string;
   email?: string;
   password?: string;
 }
@@ -25,7 +24,7 @@ export default function RegistrationForm() {
       router.refresh();
     } else {
       response.status === 409
-        ? setError("A user with this email already exist")
+        ? setError("Er bestaat al een gebruiker met dit email adres!")
         : null;
     }
   };
@@ -34,10 +33,10 @@ export default function RegistrationForm() {
     <>
       {error && <p>{error}</p>}
       <AuthForm
-        title="Register here"
+        title="Registreren"
         onSubmit={handleFormSubmit}
-        buttonText="Register"
-        linkDescription="Already have an account?"
+        buttonText="Registreer"
+        linkDescription="Heb je al een account?"
         linkText="Login"
         linkHref="/login"
       />

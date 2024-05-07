@@ -8,7 +8,7 @@ export default async function RegisterPage() {
     redirect("/");
   }
   return (
-    <div>
+    <div className="p-4 w-fit">
       <RegistrationForm />
     </div>
   );

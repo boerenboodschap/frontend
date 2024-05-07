@@ -34,17 +34,17 @@ export default function LoginForm() {
     <>
       {error && <p>{error}</p>}
       <AuthForm
-        title="Login here"
+        title="Login"
         onSubmit={handleFormSubmit}
         buttonText="Login"
-        linkDescription="New here?"
-        linkText="Create an account"
+        linkDescription="Nieuw bij boerenboodschap?"
+        linkText="Maak een account"
         linkHref="/register"
         isFullForm={false}
       />
-      <div>
-        <Link href="/request-reset-password">Forgot password?</Link>
-      </div>
+      {/* <div>
+        <Link href="/request-reset-password">Wachtwoord vergeten?</Link>
+      </div> */}
     </>
   );
 }

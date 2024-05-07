@@ -2,8 +2,7 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 
 interface Data {
-  first_name?: string;
-  last_name?: string;
+  username?: string;
   email: string;
   password: string;
 }
@@ -28,8 +27,7 @@ export default function AuthForm({
   isFullForm = true,
 }: AuthFormProps) {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -47,23 +45,15 @@ export default function AuthForm({
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit} className="flex flex-col gap-2">
       <h1>{title}</h1>
       {isFullForm && (
         <>
           <input
             type="text"
-            placeholder="First Name"
-            name="first_name"
-            value={formData.first_name}
-            onChange={handleInputChange}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            name="last_name"
-            value={formData.last_name}
+            placeholder="Gebruikersnaam"
+            name="username"
+            value={formData.username}
             onChange={handleInputChange}
             required
           />
@@ -71,7 +61,7 @@ export default function AuthForm({
       )}
       <input
         type="email"
-        placeholder="Email Address"
+        placeholder="Email Adres"
         name="email"
         value={formData.email}
         onChange={handleInputChange}
@@ -79,16 +69,16 @@ export default function AuthForm({
       />
       <input
         type="password"
-        placeholder="Enter your Password"
+        placeholder="Wachtwoord"
         name="password"
         value={formData.password}
         required
         onChange={handleInputChange}
       />
-      <button>{buttonText}</button>
+      <button className="button">{buttonText}</button>
       <p>
         {linkDescription}
-        <Link href={linkHref}>{linkText}</Link>
+        <Link href={linkHref} className="button">{linkText}</Link>
       </p>
     </form>
   );
