@@ -6,12 +6,12 @@ https://www.gradientmagic.com/collection/lightbg/gradient/1583799604316
 
 ## TODO
 
-mobiele navigatie op homescreen en mijn boerderij met een onderbalk
+https://strapi.io/blog/a-beginners-guide-to-authentication-and-authorization-in-strapi
+
+authenticatie en boerderij maken
 
 ### Nu
 
-- Data uit session cookie halen.
-- Authenticated request maken naar directus (voor het maken van een farm bijvoorbeeld).
 - Mijn boerderij functionaliteiten maken.
 
 ### Later
