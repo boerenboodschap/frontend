@@ -23,8 +23,9 @@ export default function MapPage() {
   // console.log(data.data)
 
   return (
-    <div id="map" className="h-full w-full pb-14 md:pb-0">
+    <div id="map" className="static flex h-full w-full md:pb-0">
       <Map farms={data !== undefined && data.data ? data.data : MockFarms} />
+      {/* <Map farms={MockFarms} /> */}
     </div>
   );
 }
