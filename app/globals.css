@@ -2,29 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
-
-@media (prefers-color-scheme: dark) {
-  /* :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  } */
+html {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
+p {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.15rem;
+}
+
+h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -.10rem;
+}
+
+h3 {
+  font-weight: 700;
+}
 
 .button {
   background-color: #38c838;

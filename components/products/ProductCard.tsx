@@ -10,9 +10,6 @@ export default function ProductCard(props: Props) {
   return (
     <Card>
       <div className="flex h-full w-full flex-col rounded-xl ">
-        {/* <div className="flex aspect-video items-center justify-center rounded-t-xl bg-gray-400">
-          Image
-        </div> */}
         <Image
           className="flex aspect-video items-center justify-center rounded-t-xl bg-gray-400 object-cover"
           src={props.product.imageSrc}
@@ -21,11 +18,11 @@ export default function ProductCard(props: Props) {
           height="500"
         ></Image>
         <div className="p-4">
-          <h1 className="text-lg font-medium">{props.product.name}</h1>
-          <h2 className="text-md font-normal">€{props.product.price}</h2>
-          <h2 className="text-md font-normal">
+          <h3>{props.product.name}</h3>
+          <p>€{props.product.price}</p>
+          <p>
             {props.product.stock} op voorraad
-          </h2>
+          </p>
         </div>
       </div>
     </Card>

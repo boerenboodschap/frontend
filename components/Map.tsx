@@ -28,23 +28,21 @@ export default function Map(props: Props) {
       />
       {props.farms
         ? props.farms.map((marker: any) =>
-            marker.attributes.posX && marker.attributes.posY ? (
-              <Marker
-                position={[marker.attributes.posX, marker.attributes.posY]}
-                icon={icon}
-                key={marker.attributes.posY}
-              >
-                <Popup>
-                  <div className="">
-                    <h1>{marker.attributes.name}</h1>
-                    <div>
-                      {marker.attributes.posY} {marker.attributes.posX}
-                    </div>
-                  </div>
-                </Popup>
-              </Marker>
-            ) : null,
-          )
+          marker.attributes.posX && marker.attributes.posY ? (
+            <Marker
+              position={[marker.attributes.posX, marker.attributes.posY]}
+              icon={icon}
+              key={marker.attributes.posY}
+            >
+              <Popup>
+                <h2>{marker.attributes.name}</h2>
+                <p>
+                  {marker.attributes.posY} {marker.attributes.posX}
+                </p>
+              </Popup>
+            </Marker>
+          ) : null,
+        )
         : null}
     </MapContainer>
   );

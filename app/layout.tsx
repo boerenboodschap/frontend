@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import { SessionProvider } from "next-auth/react";
 import BottomNavLink from "@/components/BottomNavLink";
 import NavLink from "@/components/NavLink";
 
@@ -16,12 +15,10 @@ export const metadata: Metadata = {
 
 interface Props {
   children: React.ReactNode;
-  // session: any;
 }
 
 export default function RootLayout(props: Props) {
   return (
-    // <SessionProvider session={props.session}>
     <html lang="en" className="h-screen w-screen">
       <body
         className={`${inter.className} absolute h-screen w-full bg-background-100/40 bg-repeat`}
@@ -40,14 +37,13 @@ export default function RootLayout(props: Props) {
               href="/over"
               className="text-sm font-normal text-indigo-800 underline"
             >
-              help en info
+              help
             </Link>
           </nav>
           <nav className="hidden h-full items-center justify-between gap-10 md:flex">
             <NavLink href="/boeren" text="Boeren" />
             <NavLink href="/producten" text="Producten" />
             <NavLink href="/kaart" text="Kaart" />
-            <NavLink href="/mijn-boerderij" text="Mijn Boerderij" />
           </nav>
         </header>
         <div className="absolute top-0 h-screen w-screen md:mb-0">
@@ -62,11 +58,9 @@ export default function RootLayout(props: Props) {
             <BottomNavLink href="/boeren" icon="👨‍🌾" text="Boeren" />
             <BottomNavLink href="/producten" icon="🥕" text="Producten" />
             <BottomNavLink href="/kaart" icon="🗺" text="Kaart" />
-            <BottomNavLink href="/mijn-boerderij" icon="🚜" text="Boerderij" />
           </nav>
         </footer>
       </body>
     </html>
-    // </SessionProvider>
   );
 }
