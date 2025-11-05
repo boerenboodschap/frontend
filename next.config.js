@@ -2,11 +2,6 @@
 
 const nextConfig = {
   output: "standalone",
-  images: {
-    domains: [
-      process.env.BACKEND_IP,
-    ],
-  },
 };
 
 module.exports = nextConfig;

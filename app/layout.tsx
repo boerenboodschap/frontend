@@ -46,11 +46,13 @@ export default function RootLayout(props: Props) {
             <NavLink href="/kaart" text="Kaart" />
           </nav>
         </header>
-        <div className="absolute top-0 h-screen w-screen md:mb-0">
+
+        <div className="absolute top-0 h-screen w-screen">
           <div className="relative top-14 h-[calc(100vh-56px)]">
             {props.children}
           </div>
         </div>
+
         <footer
           className={`fixed bottom-0 z-50 h-14 w-full border-t-2 border-t-gray-200 bg-background-50 md:hidden`}
         >
