@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Props {
   href: string;
@@ -7,13 +10,24 @@ interface Props {
 }
 
 export default function BottomNavLink(props: Props) {
+  const pathname = usePathname();
+  const activeRoute: boolean = pathname === props.href;
+
   return (
     <Link
       href={props.href}
-      className="flex aspect-square flex-col place-content-center place-items-stretch text-center active:bg-accent-200 select-none w-full"
+      className="justify-content-center flex w-full select-none flex-col place-content-center place-items-stretch gap-1 text-center"
     >
-      <div className="text-2xl">{props.icon}</div>
-      <div>{props.text}</div>
+      <div className="text-lg">{props.icon}</div>
+      <div className="w-full">
+        <span
+          className={
+            activeRoute ? "w-max rounded-full bg-accent-200 px-2 py-1 " : ""
+          }
+        >
+          {props.text}
+        </span>
+      </div>
     </Link>
   );
 }

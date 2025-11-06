@@ -19,7 +19,7 @@ export default function Map(props: Props) {
       center={[52.132633, 5.291266]}
       zoom={8}
       scrollWheelZoom={true}
-      attributionControl={false}
+      attributionControl={true}
       style={{ height: "100%", width: "100%", zIndex: 10 }}
     >
       <TileLayer
@@ -28,21 +28,21 @@ export default function Map(props: Props) {
       />
       {props.farms
         ? props.farms.map((marker: any) =>
-          marker.attributes.posX && marker.attributes.posY ? (
-            <Marker
-              position={[marker.attributes.posX, marker.attributes.posY]}
-              icon={icon}
-              key={marker.attributes.posY}
-            >
-              <Popup>
-                <h2>{marker.attributes.name}</h2>
-                <p>
-                  {marker.attributes.posY} {marker.attributes.posX}
-                </p>
-              </Popup>
-            </Marker>
-          ) : null,
-        )
+            marker.attributes.posX && marker.attributes.posY ? (
+              <Marker
+                position={[marker.attributes.posX, marker.attributes.posY]}
+                icon={icon}
+                key={marker.attributes.posY}
+              >
+                <Popup>
+                  <h2>{marker.attributes.name}</h2>
+                  <p>
+                    {marker.attributes.posY} {marker.attributes.posX}
+                  </p>
+                </Popup>
+              </Marker>
+            ) : null,
+          )
         : null}
     </MapContainer>
   );

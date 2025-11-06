@@ -1,7 +1,7 @@
 export default function AboutPage() {
   return (
-    <section className="px-3 pb-16 md:px-20 lg:px-64">
-      <h1 className="max-md:text-6xl max-sm:mt-4 max-sm:text-3xl">
+    <section className="flex h-max w-dvw flex-col px-3 pb-16 md:px-20 lg:px-64">
+      <h1 className="max-md:text-6xl max-sm:my-4 max-sm:text-3xl">
         Welkom bij{" "}
         <span className="bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
           boerenboodschap.
