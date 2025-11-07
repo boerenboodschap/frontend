@@ -1,9 +1,11 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { Farm } from "@/models/farm";
+import Link from "next/link";
 
 interface Props {
-  farms: any;
+  farms: Farm[];
 }
 
 export default function Map(props: Props) {
@@ -20,25 +22,32 @@ export default function Map(props: Props) {
       zoom={8}
       scrollWheelZoom={true}
       attributionControl={true}
-      style={{ height: "100%", width: "100%", zIndex: 10 }}
+      style={{ color: "white", height: "100%", width: "100%", zIndex: 10 }}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {props.farms
-        ? props.farms.map((marker: any) =>
-            marker.attributes.posX && marker.attributes.posY ? (
+        ? props.farms.map((marker: Farm) =>
+            marker.posX && marker.posY ? (
               <Marker
-                position={[marker.attributes.posX, marker.attributes.posY]}
+                position={[marker.posX, marker.posY]}
                 icon={icon}
-                key={marker.attributes.posY}
+                key={marker.posY}
               >
                 <Popup>
-                  <h2>{marker.attributes.name}</h2>
-                  <p>
-                    {marker.attributes.posY} {marker.attributes.posX}
-                  </p>
+                  <h2>{marker.name}</h2>
+                  <Link
+                    href={"/boeren/" + marker.name}
+                    className="rounded-full bg-accent-500 px-5 py-2.5 text-center
+                              hover:bg-accent-600 focus:outline-none focus:ring-2
+                             focus:ring-accent-300 dark:focus:ring-accent-800"
+                  >
+                    <span className="text-sm font-medium text-white">
+                      details
+                    </span>
+                  </Link>
                 </Popup>
               </Marker>
             ) : null,
