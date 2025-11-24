@@ -37,17 +37,22 @@ export default function Map(props: Props) {
                 key={marker.posY}
               >
                 <Popup>
-                  <h2>{marker.name}</h2>
-                  <Link
-                    href={"/boeren/" + marker.name}
-                    className="rounded-full bg-accent-500 px-5 py-2.5 text-center
+                  <div className="flex h-full w-full flex-col">
+                    <h2 className="my-2">{marker.name}</h2>
+                    {marker.description ? (
+                      <p className="m-0">{marker.description}</p>
+                    ) : null}
+                    <Link
+                      href={"/boeren/" + marker.name}
+                      className="rounded-full bg-accent-500 px-5 py-2.5 text-center
                               hover:bg-accent-600 focus:outline-none focus:ring-2
                              focus:ring-accent-300 dark:focus:ring-accent-800"
-                  >
-                    <span className="text-sm font-medium text-white">
-                      details
-                    </span>
-                  </Link>
+                    >
+                      <span className="text-sm font-medium text-white">
+                        details
+                      </span>
+                    </Link>
+                  </div>
                 </Popup>
               </Marker>
             ) : null,

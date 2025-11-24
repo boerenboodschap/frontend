@@ -3,15 +3,34 @@ import { Tag } from "./models/tag";
 
 export const Farms: Farm[] = [
   {
-    name: "Stipkip",
-    posX: 51.66558529829427,
-    posY: 5.65086231762777,
-    imageSrc: "/farms/stipkip.webp",
-    url: "https://www.stipkip.nl/",
+    name: "Duis",
+    posX: 51.35365286578953,
+    posY: 5.235730706550755,
+    imageSrc: "/farms/duis.webp",
+    url: "https://www.duisbladel.nl/eierautomaat.html",
     description: `
-      Eierautomaat in Uden
+      eierautomaat in bladel
     `,
+    longDescription: ``,
     tags: [Tag.poultry],
-    products: [],
+    hours: [
+      {
+        index: 0,
+        hours: [
+          {
+            open: true,
+            start: "07:30",
+            end: "21:30",
+          },
+        ],
+      },
+    ],
+    products: [
+      {
+        id: "duis-eieren",
+        name: "eieren",
+        description: "1 ster scharreleieren",
+      },
+    ],
   },
 ];
