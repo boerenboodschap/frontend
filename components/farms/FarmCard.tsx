@@ -23,7 +23,7 @@ export default function FarmCard(props: { farm: Farm }) {
           </div>
           {props.farm.url ? (
             <Link
-              href={"/boeren/" + props.farm.name}
+              href={"/boeren/" + props.farm.id}
               className="rounded-full bg-accent-500 px-5 py-2.5 text-center
                         hover:bg-accent-600 focus:outline-none focus:ring-2
                        focus:ring-accent-300 dark:focus:ring-accent-800"

@@ -10,7 +10,7 @@ export default function Boeren() {
       <div className="relative flex w-full flex-col gap-4 p-3 md:px-20 lg:px-44">
         <section className="grid gap-4 self-center pb-12 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
           {farms.map((Farm: Farm) => (
-            <FarmCard key={Farm.name} farm={Farm} />
+            <FarmCard key={Farm.id} farm={Farm} />
           ))}
         </section>
       </div>
