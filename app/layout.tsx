@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "BoerenBoodschap",
-  description: "Koop producten direct bij een boer.",
+  description: "Koop producten direct bij de boer.",
 };
 
 interface Props {
