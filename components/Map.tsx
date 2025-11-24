@@ -43,7 +43,7 @@ export default function Map(props: Props) {
                       <p className="m-0">{marker.description}</p>
                     ) : null}
                     <Link
-                      href={"/boeren/" + marker.name}
+                      href={"/boeren/" + marker.id}
                       className="rounded-full bg-accent-500 px-5 py-2.5 text-center
                               hover:bg-accent-600 focus:outline-none focus:ring-2
                              focus:ring-accent-300 dark:focus:ring-accent-800"

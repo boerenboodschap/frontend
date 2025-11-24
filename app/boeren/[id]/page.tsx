@@ -3,10 +3,8 @@ import { Farm } from "@/models/farm";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Boerderij({ params }: { params: { name: string } }) {
-  const farm: Farm | undefined = Farms.find(
-    (x: Farm) => (x.name = params.name),
-  );
+export default function Boerderij({ params }: { params: { id: string } }) {
+  const farm: Farm | undefined = Farms.find((x: Farm) => x.id === params.id);
 
   if (!farm) return "404";
 

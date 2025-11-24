@@ -2,6 +2,7 @@ import { Product } from "./product";
 import { Tag } from "./tag";
 
 export type Farm = {
+  id: string;
   name: string;
   description?: string;
   longDescription?: string;

@@ -16,10 +16,11 @@ export default function FarmCard(props: { farm: Farm }) {
             height="500"
           ></Image>
         ) : null}
-        <div className="flex h-max flex-col p-4">
-          <h2>{props.farm.name}</h2>
-          <p>{props.farm.description}</p>
-
+        <div className="flex h-full flex-col justify-between p-4">
+          <div>
+            <h2>{props.farm.name}</h2>
+            <p>{props.farm.description}</p>
+          </div>
           {props.farm.url ? (
             <Link
               href={"/boeren/" + props.farm.name}
