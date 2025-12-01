@@ -12,8 +12,9 @@ export default function FarmCard(props: { farm: Farm }) {
             className="flex aspect-video w-full bg-gray-400 object-cover"
             src={props.farm.imageSrc ?? ""}
             alt="farm image"
-            width="2000"
-            height="500"
+            width={500}
+            height={100}
+            quality={60}
           ></Image>
         ) : null}
         <div className="flex h-full flex-col justify-between p-4">
