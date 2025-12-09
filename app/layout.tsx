@@ -31,7 +31,7 @@ export default function RootLayout(props: Props) {
               />
             </Link>
           </nav>
-          <nav className="hidden h-full items-center justify-between gap-10 md:flex">
+          <nav className="flex h-full items-center justify-between max-md:hidden">
             <NavLink href="/boeren" text="Boeren" />
             <NavLink href="/kaart" text="Kaart" />
             <NavLink href="/over" text="Over" />

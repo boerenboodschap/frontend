@@ -7,7 +7,10 @@ interface Props {
 
 export default function BottomNavLink(props: Props) {
   return (
-    <Link href={props.href} className="hover:text-primary-700">
+    <Link
+      href={props.href}
+      className="flex h-full w-full items-center justify-center p-4 hover:text-primary-700"
+    >
       {props.text}
     </Link>
   );
