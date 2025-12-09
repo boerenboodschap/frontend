@@ -16,13 +16,15 @@ export default function BottomNavLink(props: Props) {
   return (
     <Link
       href={props.href}
-      className="justify-content-center flex w-full select-none flex-col place-content-center place-items-stretch gap-1 text-center"
+      className="justify-content-center flex w-full select-none flex-col place-content-center place-items-stretch gap-y-0.5 text-center"
     >
       <div className="text-lg">{props.icon}</div>
       <div className="w-full">
         <span
           className={
-            activeRoute ? "w-max rounded-full bg-accent-200 px-2 py-1 " : ""
+            activeRoute
+              ? "w-full rounded-full bg-accent-200 px-1.5 py-0.5 "
+              : ""
           }
         >
           {props.text}

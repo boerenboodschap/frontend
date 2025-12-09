@@ -41,7 +41,9 @@ export default function RootLayout(props: Props) {
           </nav>
         </header>
 
-        <div className="flex h-dvh w-dvw overflow-scroll">{props.children}</div>
+        <div className="flex h-dvh w-dvw overflow-scroll p-3 pb-16">
+          {props.children}
+        </div>
 
         <footer
           className={`fixed bottom-0 z-50 h-14 w-full border-t-2 border-t-gray-200 bg-background-50 md:hidden`}
