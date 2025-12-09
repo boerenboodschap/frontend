@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import BottomNavLink from "@/components/BottomNavLink";
 import NavLink from "@/components/NavLink";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "BoerenBoodschap",
@@ -21,7 +18,7 @@ export default function RootLayout(props: Props) {
   return (
     <html lang="en" className="h-dvh w-screen">
       <body
-        className={`${inter.className} flex h-dvh w-full flex-col bg-background-100/40 bg-repeat`}
+        className={`flex h-dvh w-full flex-col bg-background-100/40 bg-repeat`}
       >
         <header className="border-b-1 sticky top-0 z-50 flex h-14 w-full flex-row items-center justify-between gap-12 overflow-auto border bg-background-50 px-2 font-semibold max-md:hidden md:px-20 lg:px-40 xl:px-64">
           <nav className="flex items-center gap-4">
@@ -41,9 +38,9 @@ export default function RootLayout(props: Props) {
           </nav>
         </header>
 
-        <div className="flex h-dvh w-dvw overflow-scroll p-3 pb-16">
+        <main className="flex h-dvh w-dvw overflow-scroll">
           {props.children}
-        </div>
+        </main>
 
         <footer
           className={`fixed bottom-0 z-50 h-14 w-full border-t-2 border-t-gray-200 bg-background-50 md:hidden`}

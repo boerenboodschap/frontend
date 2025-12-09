@@ -9,7 +9,7 @@ export default function Boerderij({ params }: { params: { id: string } }) {
   if (!farm) return "404";
 
   return (
-    <div className="flex h-max w-full flex-col pb-16">
+    <section className="flex h-max w-full flex-col pb-16">
       {farm.imageSrc ? (
         <Image
           className="flex aspect-video max-h-96 w-full bg-gray-400 object-cover"
@@ -19,7 +19,7 @@ export default function Boerderij({ params }: { params: { id: string } }) {
           height="500"
         ></Image>
       ) : null}
-      <div className="flex h-max max-w-[40rem] flex-col p-4 lg:px-20">
+      <div className="flex h-max w-full flex-col px-6 lg:px-20">
         <h2>{farm.name}</h2>
         <p>{farm.description}</p>
 
@@ -34,6 +34,6 @@ export default function Boerderij({ params }: { params: { id: string } }) {
           </Link>
         ) : null}
       </div>
-    </div>
+    </section>
   );
 }
