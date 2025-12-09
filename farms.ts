@@ -159,7 +159,7 @@ export const Farms: Farm[] = [
     name: "KempenLust",
     posX: 51.39006, // Knegsel
     posY: 5.35249,
-    imageSrc: "/farms/kempenlust.webp", // Fictieve padnaam
+    imageSrc: "/farms/kempenlust.webp",
     url: "",
     description: `
         Vleesveehouderij en boerderijwinkel in Knegsel.
