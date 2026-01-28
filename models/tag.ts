@@ -8,4 +8,13 @@ export enum Tag {
   processed = 6,
   vending_machine = 7,
   worstenbrood = 8,
+  cheese = 9,
+  bread = 10,
+  bio = 11,
+  eggs = 12,
+  asperges = 13,
+  seizoensproducten = 14,
+  varkensvlees = 15,
+  vierentwintiguur = 16,
+  business = 17,
 }

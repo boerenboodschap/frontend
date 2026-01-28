@@ -4,6 +4,7 @@ import { Tag } from "./tag";
 export type Farm = {
   id: string;
   name: string;
+  address?: string;
   description?: string;
   longDescription?: string;
   posX?: number;
