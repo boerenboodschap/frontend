@@ -38,20 +38,31 @@ export default function Map(props: Props) {
               >
                 <Popup>
                   <div className="flex h-full w-full flex-col">
-                    <h2 className="my-2">{marker.name}</h2>
-                    {marker.description ? (
-                      <p className="m-0">{marker.description}</p>
-                    ) : null}
+                    <h2>{marker.name}</h2>
+                    {marker.description ? <p>{marker.description}</p> : null}
                     <Link
                       href={"/boeren/" + marker.id}
-                      className="rounded-full bg-accent-500 px-5 py-2.5 text-center
-                              hover:bg-accent-600 focus:outline-none focus:ring-2
+                      className="rounded-full bg-accent-100 px-5 py-2.5 text-center
+                              hover:bg-accent-200 focus:outline-none focus:ring-2
                              focus:ring-accent-300 dark:focus:ring-accent-800"
                     >
-                      <span className="text-sm font-medium text-white">
+                      <span className="text-sm font-medium text-black">
                         details
                       </span>
                     </Link>
+                    <div className="my-1"></div>
+                    {marker.url ? (
+                      <Link
+                        href={marker.url}
+                        className="rounded-full bg-accent-500 px-5 py-2.5 text-center
+                              hover:bg-accent-600 focus:outline-none focus:ring-2
+                             focus:ring-accent-300 dark:focus:ring-accent-800"
+                      >
+                        <span className="text-sm font-medium text-white">
+                          website <span className="px-1">🡢</span>
+                        </span>
+                      </Link>
+                    ) : null}
                   </div>
                 </Popup>
               </Marker>
