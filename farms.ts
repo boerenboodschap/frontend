@@ -728,21 +728,6 @@ export const Farms: Farm[] = [
     products: [],
   },
   {
-    id: "NB-UDE-001",
-    name: "Pluimveebedrijf Stipkip",
-    posX: 51.65082,
-    posY: 5.63219,
-    imageSrc: "/farms/nb-ude-001.webp",
-    url: "https://www.stipkip.nl",
-    address: "Vloetstraat 1, 5406 VP Uden",
-    description: "Eierautomaat verkoop direct bij de producent.",
-    longDescription:
-      "Verkoopkanaal: Automaat. Altijd verse eieren direct uit de stal via de automaat.",
-    tags: [Tag.eggs],
-    hours: [],
-    products: [],
-  },
-  {
     id: "NB-OSS-001",
     name: "De Vrije Kip",
     posX: 51.76541,
